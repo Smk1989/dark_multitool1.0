@@ -13,8 +13,9 @@ echo "1-Install the necessary libraries"
 echo "2-Initialize your repository and get the AOSP source code"
 echo "3-Get the prebuilt apps or device propietary blobs to compile cyanogenmod"
 echo "*Note:Can only be done after getting the source code(option-2)*"
-echo "4-exit"
+echo "4-Change/define working directory and device codename"
 echo
+echo "5.exit"
 echo "====================================================================="
 
 read input
@@ -25,7 +26,10 @@ case $input in
   ./Cyanogenmod_scripts/repo_initialize/repo_init;;
 3)clear;
   ./Cyanogenmod_scripts/import_libraries/import_prebuilts;;
-4) exit;;
+4)clear;
+  cd ~/multitool1.0/scripts/
+  ./global_info;;
+5) exit;;
 esac
 $multitools
 

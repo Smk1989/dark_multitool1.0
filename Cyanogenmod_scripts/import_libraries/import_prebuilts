@@ -1,23 +1,15 @@
 #!/bin/bash
 export root=$(cd $(dirname "$0");pwd)
-echo "Enter the name of your work directory where Cyanogenmod source code resides"
-read directory_nam
-export directory_nam
 echo "1- Import pre-built tools required for compiling cyanogenmod"
 echo "2- Prepare the device specific code"
 echo "3- Import device proprietary blobs(You have to connect your device to the computer for this to work)"
 read input
 case $input in
-1) cd ~/$directory_nam/vendor/cm
+1) cd ~/$directory_name/vendor/cm
 ./get-prebuilts;;
-2) cd ~/$directory_nam
-   echo "Enter the device codename"
-   echo "Note: Every device has a code name. If you are not sure what it is then google it out"
-   echo "For example(Sony Xperia S code name is nozomi Xperia mini Pro sk17i-mango) etc"
-   read codename
+2) cd ~/$directory_name
    source build/envsetup.sh
-   breakfast $codename
-   export codename;;
+   breakfast $codename;;
 3) clear;
   ./$root/import_deviceblobs;;
 esac
