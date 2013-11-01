@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Enter name of the directory where Cyanogenmod Source code resides"
+read directory_name
+cd ~/$directory_name/vendor/cm
+./get-prebuilts

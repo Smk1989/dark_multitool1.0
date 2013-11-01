@@ -11,17 +11,20 @@ echo "What do you want to do???????"
 echo
 echo "1-Install the necessary libraries"
 echo "2-Initialize your repository and get the AOSP source code"
-echo "3-exit"
+echo "3-Get the prebuilt apps to compile cyanogenmod(note:Can only be done after getting the source code(option-2)"
+echo "4-exit"
 echo
 echo "====================================================================="
 
 read input
 case $input in
 1) clear; 
-  ./import_libraries/import_lib;;
+  ./Cyanogenmod_scripts/import_libraries/import_lib;;
 2) clear;
-  ./repo_initialize/repo_init;;
-3) exit;;
+  ./Cyanogenmod_scripts/repo_initialize/repo_init;;
+3) clear;
+  ./Cyanogenmod_scripts/import_libraries/import_prebuilts;;
+4) exit;;
 esac
 $multitools
 
