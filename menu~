@@ -1,0 +1,32 @@
+#!/bin/bash
+clear
+export root=$(cd $(dirname "$0");pwd)
+cd $root
+export multitools=$root/./menu
+echo "===================================================================="
+echo "*************** Hi!!!Welcome to dark's_multitool *********************"
+echo
+echo "******* Please Enter your choice****"
+echo
+echo "******* 1-Cyanogenmod tools ********"
+echo
+echo "******* 2-others *******************"
+echo
+echo "******* 3-Exit *********************"
+echo "===================================================================="
+read input
+export route=$root/scripts
+case $input in
+1)$route/cyanogenmod_tools;;
+2)exit;;
+3)exit;;
+esac
+$multitools
+
+        
+
+
+
+
+
+

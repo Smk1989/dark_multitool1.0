@@ -1,0 +1,26 @@
+#!/bin/bash
+export root=$(cd $(dirname "$0");pwd)
+export multitools=$root/cyanogenmod_tools
+clear
+echo "********************Welcome to Cyanogenmod Tools********************"
+echo
+echo "===================================================================="
+echo
+echo "What do you want to do???????"
+echo
+echo "1-Install the necessary libraries"
+echo "2-Initialize your repository and get the AOSP source code"
+echo "3-exit"
+echo
+echo "====================================================================="
+
+read input
+case $input in
+1) clear; 
+  ./import_libraries/import_lib;;
+2) clear;
+  ./repo_initialize/repo_init;;
+3) exit;;
+esac
+$multitools
+
