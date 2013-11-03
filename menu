@@ -2,9 +2,8 @@
 clear
 export root=$(cd $(dirname "$0");pwd)
 cd $root
-[ -e ~/.app/config ] && source ~/.app/config ]
-echo "Working directory = $directory_name"
-echo "Device codename = $codename"
+echo "Reading config...."
+source ~/multitool1.0/scripts/config.sh
 export multitools=$root/./menu
 echo "===================================================================="
 echo "*************** Hi!!!Welcome to dark's_multitool *********************"
