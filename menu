@@ -2,8 +2,6 @@
 clear
 export root=$(cd $(dirname "$0");pwd)
 cd $root
-echo "Reading config...."
-source ~/multitool1.0/scripts/config.sh
 export multitools=$root/./menu
 echo "===================================================================="
 echo "*************** Hi!!!Welcome to dark's_multitool *********************"

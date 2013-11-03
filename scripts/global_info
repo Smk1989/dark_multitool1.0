@@ -1,0 +1,24 @@
+#!/bin/bash
+clear
+echo "--------Before you proceed please create a work directory for your files-------"
+echo 
+echo "You can create nested directories(for eg:android/system).Enter the directory name in the same format given below"
+echo
+echo "Directory name for one directory under home folder or parent directory/child directory/...)"
+echo "***************************************************************************************"
+read directory_name
+mkdir -p ~/$directory_name
+echo "Enter the device codename"
+echo "Note: Every device has a code name. If you are not sure what it is then google it out"
+echo "For example(Sony Xperia S code name is nozomi Xperia mini Pro sk17i-mango) etc"
+read codename
+cat <<EOF > ~/multitool1.0/scripts/config.sh
+directory_name="$directory_name"
+codename="$codename"
+echo "Current Directory name : $directory_name"
+echo "Current device codename : $codename"
+EOF
+
+
+
+
