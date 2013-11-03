@@ -5,7 +5,6 @@ echo "Please connect your phone via USB to your computer"
 echo "Enter the correct name of device manufacturer(for eg. for nozomi i.e xperia s its sony(No caps)"
 echo "==============================================================================================="
 read manufacturer_name
-echo "$directory_name"
 cd ~/$directory_name/device/
 if [ -d "$manufacturer_name" ];
 then
