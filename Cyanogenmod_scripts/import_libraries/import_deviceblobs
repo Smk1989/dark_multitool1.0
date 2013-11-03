@@ -1,4 +1,19 @@
 #!/bin/bash
-echo "$codename"
-echo "$directory_nam"
+clear
+echo "=============================================================================================="
+echo "Please connect your phone via USB to your computer"
+echo "Enter the correct name of device manufacturer(for eg. for nozomi i.e xperia s its sony(No caps)"
+echo "==============================================================================================="
+read manufacturer_name
+echo "$directory_name"
+cd ~/$directory_name/device/
+if [ -d "$manufacturer_name" ];
+then
+echo "Found $manufacturer_name under ~/$directory_name/device/$manufacturer_name"
+cd ~/$directory_name/device/$manufacturer_name/$codename
+./extract-files.sh
+else
+echo "Please Enter your manufacturer name correctly"
+echo "If you are not sure about the spelling go to ~/$directory_name/device/ and check your manufacturer name there"
+fi
 

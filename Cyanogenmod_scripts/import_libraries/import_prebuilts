@@ -10,7 +10,7 @@ case $input in
 2) cd ~/$directory_name
    source build/envsetup.sh
    breakfast $codename;;
-3) clear;
-  ./$root/import_deviceblobs;;
+3). /$root/import_deviceblobs;
+  read;;
 esac
 

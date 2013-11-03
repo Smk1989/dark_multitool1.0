@@ -1,4 +1,6 @@
-directory_name="Not defined"
-codename="Not Defined"
-echo "Current Directory name : Not defined"
-echo "Current device codename : Not defined"
+directory_name="CM1.0"
+codename="nozomi"
+export directory_name
+export codename
+echo "Current Directory name : CM1.0"
+echo "Current device codename : nozomi"
