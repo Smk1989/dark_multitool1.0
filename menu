@@ -10,7 +10,7 @@ echo "******* Please Enter your choice****"
 echo
 echo "******* 1-Cyanogenmod tools ********"
 echo
-echo "******* 2-others *******************"
+echo "******* 2-ADB Tools *******************"
 echo
 echo "******* 3-Exit *********************"
 echo "===================================================================="
