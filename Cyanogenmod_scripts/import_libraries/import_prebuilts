@@ -9,7 +9,9 @@ case $input in
 ./get-prebuilts;;
 2) cd ~/$directory_name
    source build/envsetup.sh
-   breakfast $codename;;
+   breakfast $codename;
+   echo "continue??"
+   read ip;;
 3). /$root/import_deviceblobs;
   read;;
 esac
