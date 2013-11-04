@@ -1,0 +1,31 @@
+#!/bin/bash
+clear
+echo "==================================================="
+echo "********** Welcome to ADB Tools ******************"
+echo
+echo "1- Declare adb as environment variables??"
+echo "Note: This allows you to use adb anywhere in terminal"
+echo
+echo "2-Create logcat to debug your phone"
+echo "3-others"
+echo
+echo "==================================================="
+read input
+case $input in
+1) echo"test"
+   read pp
+   if [ grep -Fxq "platform-tools" ~/bashrc ]
+   then
+   echo "Already an environment-variable"
+   else
+   cat <<EOF >> ~/bashrc
+   #Android tools
+   export PATH=$PATH:~/platform-tools
+   export PATH=${PATH}:~/bin
+   EOF
+   fi;
+   read;;
+2)exit;;
+3)exit;;
+esac
+
