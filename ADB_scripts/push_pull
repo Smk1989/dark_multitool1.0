@@ -1,0 +1,16 @@
+#!/bin/bash
+echo "1-Push/Pull app to/from /system of your phone"
+echo
+echo "2-Push/pull app to/from /system of your phone"
+echo
+echo "3- Pull/Push build-prop from/to your phone"
+echo
+echo "4- Pull/Push framework-res from/to your phone"
+echo
+read input
+case $input in
+1)echo "1-Push app to /system"
+  echo "2-pull app from /system"
+  read input 
+  if [ "$input" = "1" ]
+   
