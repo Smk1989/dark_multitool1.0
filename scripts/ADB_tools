@@ -10,7 +10,11 @@ echo "Note: This allows you to use adb anywhere in terminal"
 echo
 echo "2-Create logcat to debug your phone"
 echo
-echo "3-others"
+echo "3-Install apps via adb"
+echo
+echo "4-Push/Pull stuff to/from your phone via adb"
+echo
+echo "5-exit"
 echo
 echo "==================================================="
 read input
@@ -32,6 +36,9 @@ case $input in
    read;;
 2). ~/multitool1.0/ADB_scripts/create_logcat;
   read;;
-3)exit;;
+3). ~/multitool1.0/ADB_scripts/install_apps;
+  read;;
+
+4)
 esac
 
