@@ -1,4 +1,6 @@
 #!/bin/bash
+export root=$(cd $(dirname "$0");pwd)
+export multitools=$root/ADB_tools
 clear
 echo "==================================================="
 echo "********** Welcome to ADB Tools ******************"
@@ -7,25 +9,29 @@ echo "1- Declare adb as environment variables??"
 echo "Note: This allows you to use adb anywhere in terminal"
 echo
 echo "2-Create logcat to debug your phone"
+echo
 echo "3-others"
 echo
 echo "==================================================="
 read input
 case $input in
-1) echo"test"
-   read pp
-   if [ grep -Fxq "platform-tools" ~/bashrc ]
+1) echo "Please copy these lines in the file that opens at the end of the file"
+   echo "#Android tools"
+   echo "export PATH=\$PATH:~/platform-tools'"
+   echo "export PATH=\${PATH}:~/bin'"  
+   echo "Proceed???(y/n)"
+   read ip
+   if [ "$ip" = "y" ]
    then
-   echo "Already an environment-variable"
-   else
-   cat <<EOF >> ~/bashrc
-   #Android tools
-   export PATH=$PATH:~/platform-tools
-   export PATH=${PATH}:~/bin
-   EOF
+   gedit ~/.bashrc
+   echo "press Enter to continue"
+   read enterkey
+   $multitools
+   else $multitools
    fi;
    read;;
-2)exit;;
+2). ~/multitool1.0/ADB_scripts/create_logcat;
+  read;;
 3)exit;;
 esac
 
