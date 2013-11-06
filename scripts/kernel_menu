@@ -1,0 +1,56 @@
+#!/bin/bash
+clear
+echo "=============================================="
+echo 
+echo "******* Welcome to kernel-tools **************"
+echo
+echo "Disclaimer: Please note that this section is only meant for you"
+echo "if you know how to compile a kernel from its source...I do not"
+echo "take responsibility if your kernel doesnt boot up"
+echo "or is compiled wrongly..Nor will the tool do everything for you"
+echo "This section only provides you with tools and utilities to free you"
+echo "from a few tasks required when you are compiling a kernel from its source...."
+echo
+echo "******* Please select what you want to do ********"
+echo
+echo "1 - Define/change work directory for your kernel "
+echo "2 - Unpack the kernel source......"
+echo "3 - exit" 
+read input
+case $input in
+1) echo "--------Before you proceed please create a work directory for your files-------"
+   echo 
+   echo "You can create nested directories(for eg:android/system).Enter the directory name in the same format given below"
+   echo
+   echo "Directory name for one directory under home folder or parent directory/child directory/...)"
+   echo "***************************************************************************************"
+   read kerneldir_name
+   mkdir -p ~/$kerneldir_name
+   read;;
+2)clear
+  echo "************ Place a copy of the downloaded kernel source in input folder of multitool ***********"
+  echo 
+  echo "warning : make sure you place a copy(The kernel source will be deleted in the input folder) "      
+  echo "of the kernel source (.tar.gz or .zip format)"  
+  echo " Select manufacturer name "
+  echo "1 - sony " 
+  echo "2 - samsung"
+  read input
+  if [ "$input" = "1" ]
+  then
+  cd $kerneldir_name
+  tar -xjvf *.*
+  rm *.*
+  elif [ "$input" = "2" ]
+  then
+  cd ~/$kerneldir_name
+  unzip *.zip
+  tar -xjvf *.tar.gz
+  else "Enter Correct choice"
+  read;;
+3)exit;;
+   
+
+   
+   
+   

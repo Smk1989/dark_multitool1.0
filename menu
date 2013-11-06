@@ -12,14 +12,17 @@ echo "******* 1-Cyanogenmod tools ********"
 echo
 echo "******* 2-ADB Tools *******************"
 echo
-echo "******* 3-Exit *********************"
+echo "******* 3-Kernel-Tools *********************"
+echo
+echo "******* 4-exit ************"
 echo "===================================================================="
 read input
 export route=$root/scripts
 case $input in
 1)$route/cyanogenmod_tools;;
 2)$route/ADB_tools;;
-3)exit;;
+3)$route/kernel_menu;;
+4)exit;;
 esac
 $multitools
 

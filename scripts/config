@@ -1,0 +1,5 @@
+#!/bin/bash
+directory_name="pichu"
+codename="nozomi"
+echo "Current Directory name : pichu"
+echo "Current device codename : nozomi"
