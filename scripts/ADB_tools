@@ -39,6 +39,7 @@ case $input in
 3). ~/multitool1.0/ADB_scripts/install_apps;
   read;;
 
-4)
+4). ~/multitool1.0/ADB_scripts/push_pull;
+  read;;
 esac
 

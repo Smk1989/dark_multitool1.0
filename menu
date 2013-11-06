@@ -18,7 +18,7 @@ read input
 export route=$root/scripts
 case $input in
 1)$route/cyanogenmod_tools;;
-2)exit;;
+2)$route/ADB_tools;;
 3)exit;;
 esac
 $multitools

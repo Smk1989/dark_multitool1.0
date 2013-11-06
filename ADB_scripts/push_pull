@@ -1,16 +1,81 @@
 #!/bin/bash
-echo "1-Push/Pull app to/from /system of your phone"
+clear
+echo "1- Push/Pull build.prop to/from your phone"
 echo
-echo "2-Push/pull app to/from /system of your phone"
+echo "2- Push/Pull framework-res to/from your phone"
 echo
-echo "3- Pull/Push build-prop from/to your phone"
+echo "3- Push/Pull systemUI.apk to/from your phone"
 echo
-echo "4- Pull/Push framework-res from/to your phone"
-echo
+echo "4- Push/Pull any app to/from your phone"
 read input
 case $input in
-1)echo "1-Push app to /system"
-  echo "2-pull app from /system"
-  read input 
-  if [ "$input" = "1" ]
-   
+1)clear
+filename="build.prop"
+echo "What do you want to do push or pull $filename?????(enter push/pull)"
+read input1
+if [ "$input1" = "push" ]
+then
+echo "Place file in input folder of the tool.."
+echo "Press enter to continue"
+read enterkey 
+adb push ~/multitool1.0/input/$filename /system
+elif [ "$input1" = "pull" ]
+then
+adb pull /system/$filename ~/multitool1.0/output
+echo "Find the pulled file $filename in the output folder of the tool"
+else echo "Enter a proper choice"
+fi;;
+2)clear;
+filename="framework-res.apk"
+echo "What do you want to do push or pull $filename?????(enter push/pull)"
+read input1
+if [ "$input1" = "push"]
+then
+echo "Place file in input folder of the tool.." 
+echo "Press enter to continue"
+read enterkey
+adb push ~/multitool1.0/input/$filename /system/framework
+elif [ "$input1" = "pull" ]
+then
+adb pull /system/framework ~/multitool1.0/output
+echo "Find the pulled file $filename in the output folder of the tool"
+else
+echo "Enter a proper choice"
+fi;;
+3)clear;
+filename="systemUI.apk"
+echo "What do you want to do push or pull $filename?????(enter push/pull)"
+read input1
+if [ "$input1" = "push" ]
+then
+echo "Place file in input folder of the tool.." 
+echo "Press enter to continue"
+read enterkey
+adb push ~/multitool1.0/input/$filename /system/app
+elif [ "$input1" = "pull" ]
+then
+adb pull /system/app ~/multitool1.0/output
+echo "Find the pulled file $filename in the output folder of the tool"
+else
+echo "Enter a proper choice"
+fi;;
+4)clear;
+echo "Enter app name"
+read filename
+echo "What do you want to do push or pull $filename?????(enter push/pull)"
+read input1
+if [ "$input1" = "push" ]
+then
+echo "Place file in input folder of the tool.." 
+echo "Press enter to continue"
+read enterkey
+adb push ~/multitool1.0/input/$filename /system/app
+elif [ "$input1" = "pull" ]
+then
+adb pull /system/app ~/multitool1.0/output
+echo "Find the pulled file $filename in the output folder of the tool"
+else
+echo "Enter a proper choice"
+fi;;
+esac
+
