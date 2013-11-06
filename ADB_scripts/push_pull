@@ -29,7 +29,7 @@ fi;;
 filename="framework-res.apk"
 echo "What do you want to do push or pull $filename?????(enter push/pull)"
 read input1
-if [ "$input1" = "push"]
+if [ "$input1" = "push" ]
 then
 echo "Place file in input folder of the tool.." 
 echo "Press enter to continue"
@@ -37,7 +37,7 @@ read enterkey
 adb push ~/multitool1.0/input/$filename /system/framework
 elif [ "$input1" = "pull" ]
 then
-adb pull /system/framework ~/multitool1.0/output
+adb pull /system/framework/$filename ~/multitool1.0/output
 echo "Find the pulled file $filename in the output folder of the tool"
 else
 echo "Enter a proper choice"
@@ -54,7 +54,7 @@ read enterkey
 adb push ~/multitool1.0/input/$filename /system/app
 elif [ "$input1" = "pull" ]
 then
-adb pull /system/app ~/multitool1.0/output
+adb pull /system/app/$filename ~/multitool1.0/output
 echo "Find the pulled file $filename in the output folder of the tool"
 else
 echo "Enter a proper choice"
@@ -72,7 +72,7 @@ read enterkey
 adb push ~/multitool1.0/input/$filename /system/app
 elif [ "$input1" = "pull" ]
 then
-adb pull /system/app ~/multitool1.0/output
+adb pull /system/app/$filename ~/multitool1.0/output
 echo "Find the pulled file $filename in the output folder of the tool"
 else
 echo "Enter a proper choice"
