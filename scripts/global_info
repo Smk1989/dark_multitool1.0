@@ -12,7 +12,8 @@ echo "Enter the device codename"
 echo "Note: Every device has a code name. If you are not sure what it is then google it out"
 echo "For example(Sony Xperia S code name is nozomi Xperia mini Pro sk17i-mango) etc"
 read codename
-cat <<EOF > ~/multitool1.0/scripts/config.sh
+cat <<EOF > ~/multitool1.0/scripts/config
+#!/bin/bash
 directory_name="$directory_name"
 codename="$codename"
 echo "Current Directory name : $directory_name"

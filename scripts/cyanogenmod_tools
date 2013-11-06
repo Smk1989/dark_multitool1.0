@@ -3,7 +3,7 @@ export root=$(cd $(dirname "$0");pwd)
 export multitools=$root/cyanogenmod_tools
 clear
 echo "Reading config...."
-source ~/multitool1.0/scripts/config.sh
+source ~/multitool1.0/scripts/config
 echo
 echo "********************Welcome to Cyanogenmod Tools********************"
 echo
