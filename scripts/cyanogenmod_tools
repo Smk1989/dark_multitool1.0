@@ -4,6 +4,8 @@ export multitools=$root/cyanogenmod_tools
 clear
 echo "Reading config...."
 source ~/multitool1.0/scripts/config
+echo "Current Directory name : $directory_name"
+echo "Current device codename : $codename"
 echo
 echo "********************Welcome to Cyanogenmod Tools********************"
 echo

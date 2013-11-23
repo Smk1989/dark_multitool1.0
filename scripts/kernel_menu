@@ -11,11 +11,15 @@ echo "or is compiled wrongly..Nor will the tool do everything for you"
 echo "This section only provides you with tools and utilities to free you"
 echo "from a few tasks required when you are compiling a kernel from its source...."
 echo
+source ~/multitool1.0/scripts/config
+echo "Reading config................"
+echo "Current kernel work directory = $kerneldir_name"
+echo
 echo "******* Please select what you want to do ********"
 echo
 echo "1 - Define/change work directory for your kernel "
 echo "2 - Unpack the kernel source......"
-echo "3 - exit" 
+echo "3 - " 
 read input
 case $input in
 1) echo "--------Before you proceed please create a work directory for your files-------"
@@ -26,6 +30,9 @@ case $input in
    echo "***************************************************************************************"
    read kerneldir_name
    mkdir -p ~/$kerneldir_name
+   TARGET_KEY="kerneldir_name"
+   REPLACEMENT_VALUE="$kerneldir_name"
+   sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;
    read;;
 2)clear
   echo "************ Place a copy of the downloaded kernel source in input folder of multitool ***********"
@@ -35,22 +42,21 @@ case $input in
   echo " Select manufacturer name "
   echo "1 - sony " 
   echo "2 - samsung"
-  read input
-  if [ "$input" = "1" ]
+  read input1
+  if [ "$input1" = "1" ]
   then
-  cd $kerneldir_name
-  tar -xjvf *.*
-  rm *.*
-  elif [ "$input" = "2" ]
+  cd ~/multitool1.0/input
+  tar -xjvf *.bz2 -C ~/$kerneldir_name
+  rm *.bz2
+  elif [ "$input1" = "2" ]
   then
-  cd ~/$kerneldir_name
-  unzip *.zip
-  tar -xjvf *.tar.gz
+  cd ~/multitool1.0/input
+  unzip *.gz
   else "Enter Correct choice"
+  fi;
   read;;
 3)exit;;
-   
-
+esac
    
    
    

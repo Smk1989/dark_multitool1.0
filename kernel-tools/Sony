@@ -1,0 +1,15 @@
+#!/bin/bash
+clear
+echo "----------Sony Kernel Tools----------"
+echo 
+echo "What would you like to do??????"
+echo
+echo "1-Unpack Kernel Source"
+echo "2-Extract kernel.sin file from ftf file"
+echo "3-Extract kernel.sin file to get zImage & Ramdisk"
+echo "4-Get toolchain for compiling from source"
+echo "5-exit"
+read input
+case $input in
+1)clear
+  tar xzvf

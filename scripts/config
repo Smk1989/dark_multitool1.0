@@ -1,5 +1,7 @@
 #!/bin/bash
-directory_name="pichu"
-codename="nozomi"
-echo "Current Directory name : pichu"
-echo "Current device codename : nozomi"
+directory_name="not defined"
+codename="not defined"
+kerneldir_name=pikachu/pikachu
+export directory_name
+export codename
+export kerneldir_name
