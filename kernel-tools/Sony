@@ -1,5 +1,7 @@
 #!/bin/bash
 clear
+export root=$(cd $(dirname "$0");pwd)
+export multitools=$root/Sony
 source ~/multitool1.0/scripts/config
 cp ~/multitool1.0/bin/* $HOME/bin
 export PATH=$PATH:$HOME/bin
@@ -57,13 +59,17 @@ case $input in
   echo "Press enter to continue"
   read enterkey
   cd ~/$kerneldir_name
-  git clone https://github.com/DooMLoRD/android_prebuilt_toolchains.git;; 
+  git clone https://github.com/DooMLoRD/android_prebuilt_toolchains.git
+  echo "Press enter to continue"
+  read enterkey;; 
 5)./kernel-tools/Sony_buildzimage;;  
 6)clear
 echo "generating device tree..."
 dtbTool -o dt.img -s 2048 -p ~/$kerneldir_name/kernel/scripts/dtc/ ~/$kerneldir_name/kernel/arch/arm/boot/
-echo "Please find dt.img in arch/arm/boot folder of your kernel source folder";;
+echo "Please find dt.img in arch/arm/boot folder of your kernel source folder(Press Enter to continue)"
+read enterkey;;
 7)./kernel-tools/Sony_build;;
 8)exit;;
 esac
+$multitools
   
