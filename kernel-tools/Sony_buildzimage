@@ -40,11 +40,11 @@ case $input in
   echo 
   echo "Press enter to import the defconfig for your device"
   read enterkey  
-  ARCH=arm CROSS_COMPILE=home/soch/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name make menuconfig
+  make ARCH=arm CROSS_COMPILE=home/soch/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
   echo "zImage will be compiled now and it might take a long time"
   echo "Press Enter to continue or any other key+Enter to exit"
   read enterkey
-  ARCH=arm CROSS_COMPILE=home/soch/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;;
+  make ARCH=arm CROSS_COMPILE=home/soch/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;;
 2)clear
   ./kernel-tools/toolchain_selector
   cd ~/$kerneldir_name/kernel
@@ -52,8 +52,7 @@ case $input in
   echo
   echo "Press enter to import the defconfig for your device"
   read enterkey 
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
-  make menuconfig
+  make ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
   echo "zImage will be compiled now and it might take a long time"
   echo "Press Enter to continue or any other key+Enter to exit"
   read enterkey

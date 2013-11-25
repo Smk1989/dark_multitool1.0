@@ -1,6 +1,11 @@
 #!/bin/bash
 clear
 source ~/multitool1.0/scripts/config
+export PATH=$PATH:$HOME/bin
+cp ~/multitool1.0/bin/mkelf.py ~/multitool1.0/input
+cd ~/multitool1.0/input
+echo "Before building please place zImage and ramdisk.cpio.gz in the input folder of the tool"
+echo
 echo "Please Enter a choice"
 echo
 echo "1-Create boot.img/kernel.elf for Xperia Play/Xperia L/Xperia Arc/Xperia ArcS/Ray/Neo"
@@ -17,6 +22,77 @@ echo "6-Create boot.img/kernel.elf for Xperia Z1/ Z Ultra"
 echo
 echo "7-Exit"
 read input
+case $input in
+1)clear
+mkbootimg --base 0x00200000 --kernel zImage --ramdisk ramdisk.cpio.gz -o boot.img
+echo "Please find the compiled boot.img in the output folder of the tool"
+echo
+mv boot.img ~/multitool1.0/output
+echo "Press enter to continue"
+read enterkey;;
+2)clear
+echo "Please place RPM_JB.bin file as well in the input folder"
+echo 
+echo "RPM file can be found from either Doomlord's build tools sources or"
+echo "by converting kernel.sin from official ftf to kernel.elf via flashtools"
+echo
+echo "Press enter to continue"
+read enterkey
+python mkelf.py -o kernel.elf zImage@0x40208000 ramdisk.cpio.gz@0x41300000,ramdisk RPM_JB.bin@0x20000,rpm
+echo "Please find the compiled kernel.elf file in the output folder of the tool"
+echo
+mv kernel.elf ~/multitool1.0/output
+echo "Press enter to continue"
+read enterkey;;
+3)clear
+echo "Please place RPM_JB.bin file as well in the input folder"
+echo 
+echo "RPM file can be found from either Doomlord's build tools sources or"
+echo "by converting kernel.sin from official ftf to kernel.elf via flashtools"
+echo
+mv kernel.elf ~/multitool1.0/output
+echo "Press enter to continue"
+read enterkey
+python mkelf.py -o kernel.elf zImage@0x80208000 ramdisk.cpio.gz@0x81400000,ramdisk RPM_JB.bin@0x00020000,rpm bootcmd_JB@0x00000000,cmdline
+echo "Please find the compiled kernel.elf file in the output folder of the tool"
+echo
+echo "Press enter to continue"
+read enterkey;;
+4)clear
+echo "Please place RPM_JB.bin file as well in the input folder"
+echo 
+echo "RPM file can be found from either Doomlord's build tools sources or"
+echo "by converting kernel.sin from official ftf to kernel.elf via flashtools"
+echo
+echo "Press enter to continue"
+read enterkey
+python mkelf.py -o kernel.elf zImage@0x80208000 ramdisk.cpio.gz@0x81600000,ramdisk RPM.bin@0x00020000,rpm bootcmd@0x00000000,cmdline
+echo "Please find the compiled kernel.elf file in the output folder of the tool"
+echo
+echo "Press enter to continue"
+read enterkey;;
+5)clear
+mkbootimg --base 0x80200000 --kernel zImage --ramdisk_offset 0x02000000 --cmdline "androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=400M androidboot.emmc=true" --ramdisk ramdisk.cpio.gz -o boot.img
+echo "Please find the compiled boot.img in the output folder of the tool"
+echo
+mv boot.img ~/multitool1.0/output
+echo "Press enter to continue"
+read enterkey;;
+6)clear
+echo "Please place dt.img file as well in the input folder"
+echo
+echo "Press enter to continue"
+read enterkey
+mkbootimg --base 0x00000000 --kernel zImage --ramdisk_offset 0x02000000 --tags_offset 0x01E00000 --pagesize 2048 --cmdline "androidboot.hardware=qcom user_debug=31 maxcpus=2 msm_rtb.filter=0x3F ehci-hcd.park=3 msm_rtb.enable=0 lpj=192598 dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y" --ramdisk ramdisk.cpio.gz --dt dt.img -o boot.img
+echo "Please find the compiled boot.img file in the output folder of the tool"
+echo
+mv boot.img ~/multitool1.0/output
+echo "Press enter to continue"
+read enterkey;;
+7)exit;;
+esac
+
+
 
 
 

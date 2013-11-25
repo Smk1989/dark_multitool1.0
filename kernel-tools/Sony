@@ -57,7 +57,7 @@ case $input in
   cd ~/$kerneldir_name
   git clone https://github.com/DooMLoRD/android_prebuilt_toolchains.git;; 
 5)./kernel-tools/Sony_buildzimage;;  
-6)exit;;
+6)./kernel-tools/Sony_build;;
 7)exit;;
 esac
   
