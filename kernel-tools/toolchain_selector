@@ -1,0 +1,30 @@
+#!/bin/bash
+clear
+echo "Please select the toolchain you wish to use"
+echo
+echo "1-Android arm eabi 4.4.3"
+echo
+echo "2-GCC 4.6 Linaro"
+echo
+echo "3-GCC 4.7"
+echo
+echo "4-exit"
+read input
+case $input in
+1)clear
+TARGET_KEY="toolchain"
+REPLACEMENT_VALUE="arm-eabi-4.4.3/bin/arm-eabi"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+2)clear
+TARGET_KEY="toolchain"
+REPLACEMENT_VALUE="arm-eabi-linaro-4.6.2/bin/arm-eabi"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+3)clear
+TARGET_KEY="toolchain"
+REPLACEMENT_VALUE="arm-linux-androideabi-4.7/bin/arm-linux-androideabi"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+4)exit;;
+esac
+
+
+ 

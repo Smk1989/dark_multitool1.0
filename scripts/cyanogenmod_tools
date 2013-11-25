@@ -11,31 +11,42 @@ echo "********************Welcome to Cyanogenmod Tools********************"
 echo
 echo "===================================================================="
 echo
+echo "Note: Following the steps sequentially might yield you a working "
+echo "Cyanogenmod for your device..However it is better to know what you"
+echo "are doing and hence please refer to Cyanogenmod.org for the steps "
+echo "needed to build Cyanogenmod from source"
+echo
 echo "What do you want to do???????"
 echo
-echo "1-Install the necessary libraries"
-echo "2-Initialize your repository and get the AOSP source code"
-echo "3-Get the prebuilt apps or device propietary blobs to compile cyanogenmod"
-echo "*Note:Can only be done after getting the source code(option-2)*"
-echo "4-Change/define working directory and device codename"
+echo "1-Change/define working directory and device codename"
+echo
+echo "2-Install the necessary libraries"
+echo
+echo "3-Initialize your repository and get the AOSP source code"
+echo
+echo "4-Get the prebuilt apps or device propietary blobs to compile cyanogenmod"
+echo "*Note:Can only be done after getting the source code(option-3)*"
+echo
 echo "5-Finish building your Cyanogenmod for your device"
+echo
 echo "6-exit"
 echo "====================================================================="
 
 read input
 case $input in
-1) clear; 
-  ./Cyanogenmod_scripts/import_libraries/import_lib;;
-2) clear;
-  ./Cyanogenmod_scripts/repo_initialize/repo_init;;
-3)clear;
-  ./Cyanogenmod_scripts/import_libraries/import_prebuilts;;
-4)clear;
+1)clear;
   cd ~/multitool1.0/scripts/
   ./global_info;;
+2)clear; 
+  ./Cyanogenmod_scripts/import_libraries/import_lib;;
+3) clear;
+  ./Cyanogenmod_scripts/repo_initialize/repo_init;;
+4)clear;
+  ./Cyanogenmod_scripts/import_libraries/import_prebuilts;;
 5)clear;
-  . /home/soch/multitool1.0/Cyanogenmod_scripts/build/build_cyanogenmod;
-  read;;
+  ./Cyanogenmod_scripts/build/build_cyanogenmod;
+  echo "Press Enter to continue"
+  read enterkey;;
 6)exit;;
 esac
 $multitools

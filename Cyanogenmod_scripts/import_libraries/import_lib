@@ -3,6 +3,7 @@ clear
 export root=$(cd $(dirname "$0");pwd)
 export multitools=$root/import_lib
 echo "Press 1 to install the necessary build packages for cyanogenmod"
+echo
 echo "Press 2 if you are getting JDK 1.6 required error while compiling cyanogenmod"
 read input
 case $input in
@@ -11,7 +12,8 @@ case $input in
     echo
     echo
     sudo apt-get install git-core gnupg flex bison gperf libsdl1.2-dev libesd0-dev libwxgtk2.8-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev openjdk-6-jre openjdk-6-jdk pngcrush schedtool libxml2 libxml2-utils xsltproc
-    echo "Are you on a 64-bit system?(y/n)"
+    echo "*********************Are you on a 64-bit system?(y/n)**************************"
+    echo "**Warning** You should be on a 64 bit system to compile Cyanogenmod **Warning**"
     read answer
     if [ "$answer" = "y" ]
     then

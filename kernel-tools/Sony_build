@@ -1,0 +1,22 @@
+#!/bin/bash
+clear
+source ~/multitool1.0/scripts/config
+echo "Please Enter a choice"
+echo
+echo "1-Create boot.img/kernel.elf for Xperia Play/Xperia L/Xperia Arc/Xperia ArcS/Ray/Neo"
+echo
+echo "2-Create boot.img/kernel.elf for Xperia S/Xperia SL/Ion/Acro S"
+echo
+echo "3-Create boot.img/kernel.elf for Xperia T/ TX/ V"
+echo
+echo "4-Create boot.img/kernel.elf for Xperia SP"
+echo
+echo "5-Create boot.img/kernel.elf for Xperia Z/ ZL/ Tablet Z/ ZR"
+echo
+echo "6-Create boot.img/kernel.elf for Xperia Z1/ Z Ultra"
+echo
+echo "7-Exit"
+read input
+
+
+

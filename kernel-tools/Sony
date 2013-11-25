@@ -1,15 +1,63 @@
 #!/bin/bash
 clear
+source ~/multitool1.0/scripts/config
+cp ~/multitool1.0/bin/*.* $HOME/bin
+export PATH=$PATH:$HOME/bin
 echo "----------Sony Kernel Tools----------"
 echo 
 echo "What would you like to do??????"
 echo
 echo "1-Unpack Kernel Source"
+echo
 echo "2-Extract kernel.sin file from ftf file"
+echo
 echo "3-Extract kernel.sin file to get zImage & Ramdisk"
+echo
 echo "4-Get toolchain for compiling from source"
-echo "5-exit"
+echo
+echo "5-Compile Zimage from source"
+echo
+echo "6-Make kernel.elf or boot.img from zImage and Ramdisk"
+echo
+echo "7-Exit"
 read input
 case $input in
 1)clear
-  tar xzvf
+  echo "Please place a copy of the downloaded source tar.bz2 file in the input folder of the tool"
+  echo "Press Enter to proceed with unpacking"
+  cd ~/multitool1.0/input
+  tar -xjvf *.bz2 -C ~/$kerneldir_name
+  rm *.bz2
+  echo "Please find the unpacked source in your kernel work directory"
+  echo "Press enter to continue"
+  read enterkey;;
+2)clear
+  echo "Place a copy of the ftf file in your kernel work directory"
+  echo
+  echo "Press enter to extract kernel.sin"
+  read enterkey
+  cd ~/$kerneldir_name
+  unzip *.ftf kernel.sin
+  echo "Please find kernel.sin in your kernel work directory"
+  echo "Press enter to continue"
+  read enterkey;;
+3)clear
+  echo "Place kernel.sin in your kernel work directory"
+  echo
+  echo "Press enter to unpack kernel.sin"
+  read enterkey
+  cd ~/$kerneldir_name
+  unpack-kernelsin.pl kernel.sin 
+  echo "Please find zimage and ramdisk from kernel.sin in your kernel work directory"
+  echo "Press enter to continue"
+  read enterkey;;
+4)echo "Doomlord's toolchain will be downloaded"
+  echo "Press enter to continue"
+  read enterkey
+  cd ~/$kerneldir_name
+  git clone https://github.com/DooMLoRD/android_prebuilt_toolchains.git;; 
+5)./kernel-tools/Sony_buildzimage;;  
+6)exit;;
+7)exit;;
+esac
+  
