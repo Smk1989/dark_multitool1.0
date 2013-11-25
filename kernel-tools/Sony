@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 source ~/multitool1.0/scripts/config
-cp ~/multitool1.0/bin/*.* $HOME/bin
+cp ~/multitool1.0/bin/* $HOME/bin
 export PATH=$PATH:$HOME/bin
 echo "----------Sony Kernel Tools----------"
 echo 
@@ -17,9 +17,11 @@ echo "4-Get toolchain for compiling from source"
 echo
 echo "5-Compile Zimage from source"
 echo
-echo "6-Make kernel.elf or boot.img from zImage and Ramdisk"
+echo "6-Make dt.img(for xperia z1 and z ultra)"
 echo
-echo "7-Exit"
+echo "7-Make kernel.elf or boot.img from zImage and Ramdisk"
+echo
+echo "8-Exit"
 read input
 case $input in
 1)clear
@@ -57,7 +59,11 @@ case $input in
   cd ~/$kerneldir_name
   git clone https://github.com/DooMLoRD/android_prebuilt_toolchains.git;; 
 5)./kernel-tools/Sony_buildzimage;;  
-6)./kernel-tools/Sony_build;;
-7)exit;;
+6)clear
+echo "generating device tree..."
+dtbTool -o dt.img -s 2048 -p ~/$kerneldir_name/kernel/scripts/dtc/ ~/$kerneldir_name/kernel/arch/arm/boot/
+echo "Please find dt.img in arch/arm/boot folder of your kernel source folder";;
+7)./kernel-tools/Sony_build;;
+8)exit;;
 esac
   

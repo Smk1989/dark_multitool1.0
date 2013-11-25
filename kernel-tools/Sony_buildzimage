@@ -1,17 +1,7 @@
 #!/bin/bash
 clear
 source ~/multitool1.0/scripts/config
-if [ -z "$config_name" ]
-then
-echo "Please enter your defconfig name before proceeding"
-echo
-echo "For eg: for Xperia Play it is semc_zeus_defconfig"
-read config_name
-TARGET_KEY="config_name"
-REPLACEMENT_VALUE="$config_name"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
-break
-else
+echo "Current defconfig name : $config_name"
 echo "Please Enter a choice"
 echo
 echo "1-Create zImage for Xperia Play/Xperia L/Xperia Arc/Xperia ArcS/Ray/Neo"
@@ -26,7 +16,7 @@ echo "5-Create zImage for Xperia Z/ ZL/ Tablet Z/ ZR"
 echo
 echo "6-Create zImage for Xperia Z1/ Z Ultra"
 echo
-echo "7-Change defconfig name"
+echo "7-Change defconfig name to build"
 echo
 echo "8-Change toolchain"
 echo
@@ -34,79 +24,64 @@ echo "9-exit"
 read input
 case $input in
 1)clear
+  echo "Recommended toolchain is GCC 4.6 Linaro(Press Enter to continue)"
+  read enterkey 
   ./kernel-tools/toolchain_selector
-  cd ~/$kerneldir_name/kernel
-  echo "Recommended toolchain is GCC 4.6 Linaro"
-  echo 
-  echo "Press enter to import the defconfig for your device"
-  read enterkey  
-  make ARCH=arm CROSS_COMPILE=home/soch/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
-  echo "zImage will be compiled now and it might take a long time"
-  echo "Press Enter to continue or any other key+Enter to exit"
-  read enterkey
-  make ARCH=arm CROSS_COMPILE=home/soch/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;;
+  echo "Please enter your defconfig name before proceeding"
+  echo
+  echo "For eg: for Xperia Play it is semc_zeus_defconfig"
+  read config_name
+  TARGET_KEY="config_name"
+  REPLACEMENT_VALUE="$config_name"
+  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
 2)clear
-  ./kernel-tools/toolchain_selector
-  cd ~/$kerneldir_name/kernel
-  echo "Recommended toolchain is GCC 4.7"
-  echo
-  echo "Press enter to import the defconfig for your device"
-  read enterkey 
-  make ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
-  echo "zImage will be compiled now and it might take a long time"
-  echo "Press Enter to continue or any other key+Enter to exit"
+  echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;
-  echo "Press enter to continue"
-  read enterkey;;
+  ./kernel-tools/toolchain_selector
+echo "Please enter your defconfig name before proceeding"
+echo
+echo "For eg: for Xperia Play it is semc_zeus_defconfig"
+read config_name
+TARGET_KEY="config_name"
+REPLACEMENT_VALUE="$config_name"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;; 
 3)clear
+  echo "Recommended toolchain is GCC 4.6 Linaro(Press Enter to continue)"
+  read enterkey
   ./kernel-tools/toolchain_selector
-  cd ~/$kerneldir_name/kernel
-  echo "Recommended toolchain is GCC 4.6 Linaro"
-  echo
-  echo "Press enter to import the defconfig for your device"
-  read enterkey
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name 
-  echo "zImage will be compiled now and it might take a long time"
-  echo "Press Enter to continue or any other key+Enter to exit"
-  read enterkey
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;;
+echo "Please enter your defconfig name before proceeding"
+echo
+echo "For eg: for Xperia Play it is semc_zeus_defconfig"
+read config_name
+TARGET_KEY="config_name"
+REPLACEMENT_VALUE="$config_name"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
 4)clear
-  ./kernel-tools/toolchain_selector
-  cd ~/$kerneldir_name/kernel
-  echo "Recommended toolchain is GCC 4.7"
-  echo
-  echo "Press enter to import the defconfig for your device"
-  read enterkey 
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name  
-  echo "zImage will be compiled now and it might take a long time"
-  echo "Press Enter to continue or any other key+Enter to exit"
+  echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;;
+  ./kernel-tools/toolchain_selector;;
 5)clear
+  echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
+  read enterkey
   ./kernel-tools/toolchain_selector
-  cd ~/$kerneldir_name/kernel
-  echo "Recommended toolchain is GCC 4.7"
-  echo
-  echo "Press enter to import the defconfig for your device"
-  read enterkey
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
-  echo "zImage will be compiled now and it might take a long time"
-  echo "Press Enter to continue or any other key+Enter to exit"
-  read enterkey
-  ARCH=arm CROSS_COMPILE=~/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;;
+echo "Please enter your defconfig name before proceeding"
+echo
+echo "For eg: for Xperia Play it is semc_zeus_defconfig"
+read config_name
+TARGET_KEY="config_name"
+REPLACEMENT_VALUE="$config_name"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
 6)clear
+  echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
+  read enterkey
   ./kernel-tools/toolchain_selector
-  cd ~/$kerneldir_name/kernel
-  echo "Recommended toolchain is GCC 4.7"
-  echo
- echo "Press enter to import the defconfig for your device"
-  read enterkey
-  ARCH=arm CROSS_COMPILE=~/$kerneldir_name/$toolchain- make $config_name
-  echo "zImage will be compiled now and it might take a long time"
-  echo "Press Enter to continue or any other key+Enter to exit"
-  read enterkey
-  ARCH=arm CROSS_COMPILE=~/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make;;
+echo "Please enter your defconfig name before proceeding"
+echo
+echo "For eg: for Xperia Play it is semc_zeus_defconfig"
+read config_name
+TARGET_KEY="config_name"
+REPLACEMENT_VALUE="$config_name"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
 7)echo "Please enter a new defconfig name"
   read config_name
   TARGET_KEY="config_name"
@@ -115,7 +90,15 @@ case $input in
 8)./kernel-tools/toolchain_selector;;
 9)exit;;
 esac
-fi
+  cd ~/$kerneldir_name/kernel
+  echo "Press enter to import the defconfig for your device"
+  read enterkey
+  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
+  echo "zImage will be compiled now and it might take a long time"
+  echo "Press Enter to continue"
+  read enterkey
+  ARCH=arm CROSS_COMPILE=~/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make
+
 
   
   

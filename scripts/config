@@ -2,7 +2,7 @@
 directory_name=pichu
 codename=nozomi
 kerneldir_name=pikachu/pikachu
-config_name=fuji_nozomi_defconfig
+config_name=fusion3_yuga1_defconfig
 toolchain=arm-linux-androideabi-4.7/bin/arm-linux-androideabi
 export directory_name
 export codename
