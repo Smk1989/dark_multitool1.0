@@ -21,11 +21,11 @@ echo "1 - Define/change work directory for your kernel "
 echo
 echo "2 - To work on Sony kernel"
 echo
-echo "3 - To work on Samsung kernel"
+echo "3 - To work on Nexus kernel"
 echo
-echo "4 - To work on HTC kernel"
+echo "4 - To work on Samsung kernel"
 echo
-echo "5 - To work on a generic kernel(Experimental)"
+echo "5 - Unpack boot.img to get zImage and Ramdisk"
 echo 
 echo "6 - Exit"
 read input
@@ -43,9 +43,19 @@ case $input in
    sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;
    read;;
 2)./kernel-tools/Sony;;
-3)exit;;
-4)exit;;
-5)exit;;
+3)./kernel-tools/nexus_kernel;;
+4)./kernel-tools/samsung;;
+5)clear
+echo "Place boot.img in the input folder of the tool"
+echo
+echo "Press Enter to continue"
+read enterkey
+cd ~/multitool1.0/input
+unpack-bootimg.pl boot.img
+rm *.img
+mv ~/multitool1.0/input/* ~/multitool1.0/output
+echo "Done..please find your extracted zImage and ramdisk in the output folder of the tool(press enter)"
+read enterkey;;
 6)exit;;
 esac
 

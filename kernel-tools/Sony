@@ -62,7 +62,9 @@ case $input in
   git clone https://github.com/DooMLoRD/android_prebuilt_toolchains.git
   echo "Press enter to continue"
   read enterkey;; 
-5)./kernel-tools/Sony_buildzimage;;  
+5)echo "Please maximize your terminal window before proceeding(Press Enter)"
+read enterkey
+./kernel-tools/Sony_buildzimage;;  
 6)clear
 echo "generating device tree..."
 dtbTool -o dt.img -s 2048 -p ~/$kerneldir_name/kernel/scripts/dtc/ ~/$kerneldir_name/kernel/arch/arm/boot/
