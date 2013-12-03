@@ -1,0 +1,27 @@
+#!/bin/bash
+clear
+echo "Welcome to Sony TA partition backup"
+echo "Press enter to continue"
+read enterkey
+adb shell "su -c '
+           cat /proc/partitions
+           exit
+           exit'"
+echo "Please make a note of the partition name with size 2048KB(Important)"
+echo "Press enter to proceed"
+read enterkey
+echo "Enter the block number" 
+echo "eg.for mmcblk0p1 enter mmcblkp01"
+echo "Note: To check block number again just type reload and enter"
+read input1
+if [ "$input1" = "reload" ]
+then
+$multitools
+else
+adb shell "su -c '
+          dd if=/dev/block/$input of=TA.img
+          md5 /dev/block/$input TA.img'"
+fi
+exit 0
+
+

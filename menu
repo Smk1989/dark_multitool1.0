@@ -14,7 +14,9 @@ echo "******* 2-ADB Tools *******************"
 echo
 echo "******* 3-Kernel-Tools *********************"
 echo
-echo "******* 4-exit ************"
+echo "******* 4-Backup TA partition for Sony or EFS partition on samsung***"
+echo
+echo "******* 5-Exit*******************************"
 echo "===================================================================="
 read input
 export route=$root/scripts
@@ -22,7 +24,8 @@ case $input in
 1)$route/cyanogenmod_tools;;
 2)$route/ADB_tools;;
 3)$route/kernel_menu;;
-4)exit;;
+4)$route/backup;;
+5)exit;;
 esac
 $multitools
 

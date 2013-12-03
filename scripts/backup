@@ -1,0 +1,31 @@
+#!/bin/bash
+export root=$(cd $(dirname "$0");pwd)
+export multitools=$root/backup
+echo "========= Welcome to EFS/TA partition backup========"
+echo
+echo "Please note that TA partition restore option has not been provided with the tool"
+echo
+echo "Press enter to proceed"
+read enterkey
+clear
+echo "1 - Backup TA partition for Sony"
+echo "2 - Backup EFS partiton for Samsung"
+read input
+case $input in
+1)./Backup/TA_backup;;
+2)./Backup/EFS_samsung;;
+esac
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

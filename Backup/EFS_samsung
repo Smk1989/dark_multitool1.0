@@ -1,0 +1,74 @@
+#!/bin/bash
+clear
+echo "Welcome to Samsung EFS partition backup/restore"
+echo "Press enter to continue"
+read enterkey
+echo "1 - Backup EFS partition on your samsung phone"
+echo "2 - Restore EFS partition on your samsung phone"
+read input2
+if [ "$input2" = "1" ]
+then
+adb shell "su -c '
+           mount | grep efs
+           exit
+           exit'"
+echo "Please make a note of the partition name"
+echo "Press enter to proceed"
+read enterkey
+echo "1-Use tar method to backup"
+echo "2-Use dd method to backup"
+read input3
+if [ "$input3" = "1" ]
+then
+adb shell "su -c '
+           tar -cvf ~/sdcard/ /efs
+           chown /mnt/sdcard/efs.tar
+           chmod 664 /mnt/sdcard/efs.tar
+           exit
+           exit'"
+cd ~/multitool1.0/output
+adb pull /mnt/sdcard/efs.tar
+elif [ "$input3" = "2" ]
+then
+adb shell "su -c '
+           dd if=/dev/block/platform/msm_sdcc.1/by-name/efs of=/data/media/0/efs.img
+           chown media_rw:media_rw /data/media/0/efs.img
+           chmod 664 /data/media/0/efs.imgr
+           exit
+           exit'"
+cd ~/multitool1.0/output
+adb pull /mnt/shell/emulated/0/efs.img
+else 
+echo "Please enter a correct value"
+fi
+elif [ "$input2" = "2" ]
+then
+echo "1-Use tar method to restore"
+echo "2-Use dd method to restore"
+read input1
+if [ "$input1" = "1" ]
+then
+cd ~/multitool1.0/input
+adb push efs.tar /mnt/shell/emulated/0/
+adb shell "su -c '
+           tar -xvf /data/media/0/efs.tar
+           exit
+           exit'"
+elif [ "$input1" = "2" ]
+then
+cd ~/multitool1.0/input
+adb push efs.tar /mnt/shell/emulated/0/
+adb shell "su -c '
+           dd if=/data/media/0/efs.img of=/dev/block/platform/msm_sdcc.1/by-name/efs
+           exit
+           exit'"
+else 
+echo "Please enter a correct value"
+fi
+read enterkey
+else 
+echo "Enter correct choice"
+read enterkey
+fi
+echo "Done"
+echo "Press Enter to continue"
