@@ -1,0 +1,27 @@
+#!/bin/bash
+clear
+echo "1-To update all changes"
+echo
+echo "2-To update only specific files"
+echo
+echo "3-Exit"
+echo "Note: This will just add the changes..To commit use the commit option on the previous page"
+read input
+case $input in
+1)
+git add .
+git add -u
+echo "All the additions/deletions have been added"
+read enterkey;;
+2)clear
+echo "Please Enter the filename you wanna commit"
+echo
+echo "Tip: To commit file names with a generic extension add *.extension(eg:*.c)"
+read filename
+git add $filename
+echo "$filename added...Please commit"
+read enterkey;;
+3)./scripts/GIT;;
+esac
+
+

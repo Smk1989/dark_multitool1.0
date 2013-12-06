@@ -22,22 +22,24 @@ if [ "$input3" = "1" ]
 then
 adb shell "su -c '
            tar -cvf ~/sdcard/ /efs
-           chown /mnt/sdcard/efs.tar
-           chmod 664 /mnt/sdcard/efs.tar
+           chown sdcard_rw:sdcard_rw ~/sdcard/efs.tar
+           chmod 664 ~/sdcard/efs.tar
            exit
            exit'"
 cd ~/multitool1.0/output
 adb pull /mnt/sdcard/efs.tar
 elif [ "$input3" = "2" ]
 then
+echo "Enter the name of the memory block containing the efs partition"
+read $memblock
 adb shell "su -c '
-           dd if=/dev/block/platform/msm_sdcc.1/by-name/efs of=/data/media/0/efs.img
-           chown media_rw:media_rw /data/media/0/efs.img
-           chmod 664 /data/media/0/efs.imgr
+           dd if=/dev/block/platform/$memblock/efs of=~/sdcard/efs.img
+           chown sdcard_rw:sdcard_rw ~/sdcard/efs.tar
+           chmod 664 ~/sdcard/efs.img
            exit
            exit'"
 cd ~/multitool1.0/output
-adb pull /mnt/shell/emulated/0/efs.img
+adb pull ~/sdcard/efs.img
 else 
 echo "Please enter a correct value"
 fi
@@ -49,17 +51,17 @@ read input1
 if [ "$input1" = "1" ]
 then
 cd ~/multitool1.0/input
-adb push efs.tar /mnt/shell/emulated/0/
+adb push efs.tar ~/sdcard/
 adb shell "su -c '
-           tar -xvf /data/media/0/efs.tar
+           tar -xvf ~/sdcard/efs.tar
            exit
            exit'"
 elif [ "$input1" = "2" ]
 then
 cd ~/multitool1.0/input
-adb push efs.tar /mnt/shell/emulated/0/
+adb push efs.img ~/sdcard/
 adb shell "su -c '
-           dd if=/data/media/0/efs.img of=/dev/block/platform/msm_sdcc.1/by-name/efs
+           dd if=~/sdcard/efs.img of=/dev/block/$memblock/efs
            exit
            exit'"
 else 

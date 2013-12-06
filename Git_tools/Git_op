@@ -1,0 +1,28 @@
+#!/bin/bash
+clear
+source ~/multitool1.0/scripts/config
+echo "Current branch name : $git_branch_name"
+echo
+echo "1 - Push changes to your remote repository"
+echo
+echo "2 - Pull changes to your remote repository"
+echo
+echo "3 - Change branch name to push/pull(by default:master)"
+echo
+echo "4 - Exit"
+read input
+case $input in
+1)
+git push origin $branch_name
+read enterkey;;
+2)
+git pull origin $branch_name
+read enterkey;;
+3)clear "Enter branch name"
+read input1
+TARGET_KEY="git_branch_name"
+REPLACEMENT_VALUE="$input1"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+4)./scripts/GIT;;
+esac
+

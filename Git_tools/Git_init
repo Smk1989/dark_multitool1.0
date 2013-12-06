@@ -1,0 +1,55 @@
+#!/bin/bash
+clear
+source ~/multitool1.0/scripts/config
+echo "Current git directory : $git_directory"
+echo
+echo "Please go to previous page and use the Git tools in case you want to change directory"
+echo
+echo "Do you want to initialize git in the current directory?(y/n)"
+echo
+read input
+if [ "$input" = "y" ]
+then
+cd ~/$git_directory
+echo "1 - Initialize git in current directory"
+echo
+echo "2 - Change your remote repository name(eg: Hello-world.git)"
+echo
+echo "3 - change your github username"
+echo 
+echo "4- Exit"
+read input1
+case $input1 in
+1)cd $git_directory
+git init
+read enterkey;;
+2)clear
+echo "Enter the name of your remote Git repository(eg: hello-world.git)"
+read input1
+TARGET_KEY="git_repo"
+REPLACEMENT_VALUE="$input1"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
+echo "Current remote Git repository changed to $input1"
+echo "Press Enter to continue"
+read enterkey
+./scripts/GIT;;
+3)clear
+echo "Enter your github username"
+read input2
+TARGET_KEY="git_username"
+REPLACEMENT_VALUE="$input2"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
+echo "Current username changed to $input2"
+echo "Press Enter to continue"
+read enterkey;;
+4)exit;;
+esac
+elif [ "$input" = "n" ]
+then
+./scripts/GIT
+else 
+echo "Enter a valid Choice(Press Enter to continue)"
+read enterkey
+fi
+
+
