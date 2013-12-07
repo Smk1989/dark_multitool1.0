@@ -1,0 +1,27 @@
+#!/bin/bash
+clear
+echo "1 - Update the tool to its latest version"
+echo
+echo "2 - Donate to me"
+read input
+case $input in
+1)clear
+git pull origin master;;
+2)clear
+echo ">Thanks for donating..:)"
+echo
+echo ">Please note my Email ID : somik.chowdhury1926@gmail.com"
+echo
+echo ">Personal payment doesnt work through paypal in India"
+echo
+echo ">Please choose buy goods/services and select either of the both"
+echo
+echo "Proceed?(y/n)"
+read input1
+if [ "$input1" = "y" ]
+then
+xdg-open https://paypal.com
+else
+./menu
+fi;;
+esac

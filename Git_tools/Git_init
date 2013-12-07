@@ -15,7 +15,7 @@ echo "1 - Initialize git in current directory"
 echo
 echo "2 - Change your remote repository name(eg: Hello-world.git)"
 echo
-echo "3 - change your github username"
+echo "3 - Change your github username"
 echo 
 echo "4- Exit"
 read input1
@@ -40,10 +40,15 @@ TARGET_KEY="git_username"
 REPLACEMENT_VALUE="$input2"
 sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
 echo "Current username changed to $input2"
+git config --global user.name "$input2"
+echo "Enter email ID to be used to label your commits(give same email as used in your github account"
+read input3
+git config --global user.email "$input3"
 echo "Press Enter to continue"
 read enterkey;;
-4)exit;;
+4)./scripts/GIT
 esac
+git remote add origin https://github.com/$git_username/$git_repo.git
 elif [ "$input" = "n" ]
 then
 ./scripts/GIT

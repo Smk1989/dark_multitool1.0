@@ -18,7 +18,9 @@ echo "******* 4-Backup TA partition for Sony or EFS partition on samsung ******"
 echo
 echo "******* 5-GIT tools *******************************"
 echo
-echo "******* 6-Exit *************"
+echo "******* 6-Update tool or Donate to me *************"
+echo
+echo "******* 7-Exit ********"
 echo
 echo "==========================================================================="
 read input
@@ -29,7 +31,8 @@ case $input in
 3)$route/kernel_menu;;
 4)$route/backup;;
 5)$route/GIT;;
-6)exit;;
+6)$route/update_donate;;
+7)exit;;
 esac
 $multitools
 

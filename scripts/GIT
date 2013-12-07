@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+source ~/multitool1.0/scripts/config
 echo "1 - Download GIT package on your linux"
 echo
 echo "2 - Change directory where you want to initialize git"
@@ -12,9 +13,11 @@ echo "5 - Commit your additions/deletions"
 echo
 echo "6 - Push/Pull to/from yout github repository"
 echo
-echo "7 - Download any repository using GIT"
+echo "7 - Automatic push commits to your repository(After git setup is done)"
 echo
-echo "8-exit"
+echo "8 - Download any repository using GIT"
+echo
+echo "9-exit"
 read input
 case $input in
 1)sudo apt-get install git;;
@@ -29,6 +32,34 @@ sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/c
 5)./Git_tools/Git_commit;;
 6)./Git_tools/Git_op;;
 7)clear
+echo "This utility will perform all the syncing tasks"
+echo "Once your git setup is done"
+echo "Just use this step to commit your changes to remote repository"
+echo
+echo "Your currect directory to be synced with remote : $git_directory"
+echo "Your current username : $git_username"
+echo "Your remote repository name : https://$git_username/$git_repo.git"
+echo "Current branch name : $git_branch_name"
+echo "Do you want to proceed?(y/n)"
+read input2
+if [ "$input2" = "y" ]
+then
+cd ~/$git_directory
+git add .
+git add -u
+echo "Enter commit message"
+read msg
+git commit -m "$msg"
+git pull origin $git_branch_name
+git push origin master
+elif [ "$input2" = "n" ]
+then
+./scripts/GIT
+else
+echo "Enter correct choice"
+read enterkey
+fi;;
+8)clear
 echo "Enter the github URL of the repository you want to clone"
 read URL
 git clone $URL
