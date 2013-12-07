@@ -7,7 +7,7 @@ export git_directory=pichu
 export git_username=
 export git_repo=
 export git_branch_name=master
-export toolchain=arm-linux-androideabi-4.7/bin/arm-linux-androideabi
+export toolchain=
 export directory_name
 export codename
 export kerneldir_name

@@ -15,15 +15,13 @@ echo "2-Extract kernel.sin file from ftf file"
 echo
 echo "3-Extract kernel.sin file to get zImage & Ramdisk"
 echo
-echo "4-Get toolchain for compiling from source"
+echo "4-Compile Zimage from source"
 echo
-echo "5-Compile Zimage from source"
+echo "5-Make dt.img(for xperia z1 and z ultra)"
 echo
-echo "6-Make dt.img(for xperia z1 and z ultra)"
+echo "6-Make kernel.elf or boot.img from zImage and Ramdisk"
 echo
-echo "7-Make kernel.elf or boot.img from zImage and Ramdisk"
-echo
-echo "8-Exit"
+echo "7-Exit"
 read input
 case $input in
 1)clear
@@ -55,23 +53,17 @@ case $input in
   echo "Please find zimage and ramdisk from kernel.sin in your kernel work directory"
   echo "Press enter to continue"
   read enterkey;;
-4)echo "Doomlord's toolchain will be downloaded"
-  echo "Press enter to continue"
-  read enterkey
-  cd ~/$kerneldir_name
-  git clone https://github.com/DooMLoRD/android_prebuilt_toolchains.git
-  echo "Press enter to continue"
-  read enterkey;; 
-5)echo "Please maximize your terminal window before proceeding(Press Enter)"
+4)clear
+echo "Please maximize your terminal window before proceeding(Press Enter)"
 read enterkey
 ./kernel-tools/Sony_buildzimage;;  
-6)clear
+5)clear
 echo "generating device tree..."
 dtbTool -o dt.img -s 2048 -p ~/$kerneldir_name/kernel/scripts/dtc/ ~/$kerneldir_name/kernel/arch/arm/boot/
 echo "Please find dt.img in arch/arm/boot folder of your kernel source folder(Press Enter to continue)"
 read enterkey;;
-7)./kernel-tools/Sony_build;;
-8)exit;;
+6)./kernel-tools/Sony_build;;
+7)./scrips/kernel_menu;;
 esac
 $multitools
   

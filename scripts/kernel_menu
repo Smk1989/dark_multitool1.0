@@ -25,9 +25,11 @@ echo "3 - To work on Nexus kernel"
 echo
 echo "4 - To work on Samsung kernel"
 echo
-echo "5 - Unpack boot.img to get zImage and Ramdisk"
+echo "5 - Download toolchains"
+echo
+echo "6 - Unpack boot.img to get zImage and Ramdisk"
 echo 
-echo "6 - Exit"
+echo "7 - Exit"
 read input
 case $input in
 1) echo "--------Before you proceed please create a work directory for your files-------"
@@ -45,7 +47,14 @@ case $input in
 2)./kernel-tools/Sony;;
 3)./kernel-tools/nexus_kernel;;
 4)./kernel-tools/samsung;;
-5)clear
+5)echo "A few toolchains will be downloaded"
+  echo "Press enter to continue"
+  read enterkey
+  cd ~/$kerneldir_name
+  git clone https://github.com/smk1989/android_toolchains.git
+  echo "Press enter to continue"
+  read enterkey;; 
+6)clear
 echo "Place boot.img in the input folder of the tool"
 echo
 echo "Press Enter to continue"
@@ -56,7 +65,7 @@ rm *.img
 mv ~/multitool1.0/input/* ~/multitool1.0/output
 echo "Done..please find your extracted zImage and ramdisk in the output folder of the tool(press enter)"
 read enterkey;;
-6)exit;;
+7)exit;;
 esac
 
   
