@@ -3,7 +3,7 @@ clear
 export root=$(cd $(dirname "$0");pwd)
 export multitools=$root/repo_init
 mkdir -p ~/bin
-cd ~/multitool1.0/scripts/
+cd ~/dark_multitool1.0/scripts/
 ./global_info
 echo "Enter build number of the Cyanogenmod source you want to compile"
 echo "1-cm-7.0.0"

@@ -2,8 +2,7 @@
 clear
 export root=$(cd $(dirname "$0");pwd)
 export multitools=$root/Sony
-source ~/multitool1.0/scripts/config
-cp ~/multitool1.0/bin/* $HOME/bin
+source ~/dark_multitool1.0/scripts/config
 export PATH=$PATH:$HOME/bin
 echo "----------Sony Kernel Tools----------"
 echo 
@@ -27,7 +26,7 @@ case $input in
 1)clear
   echo "Please place a copy of the downloaded source tar.bz2 file in the input folder of the tool"
   echo "Press Enter to proceed with unpacking"
-  cd ~/multitool1.0/input
+  cd ~/dark_multitool1.0/input
   tar -xjvf *.bz2 -C ~/$kerneldir_name
   rm *.bz2
   echo "Please find the unpacked source in your kernel work directory"
@@ -63,7 +62,7 @@ dtbTool -o dt.img -s 2048 -p ~/$kerneldir_name/kernel/scripts/dtc/ ~/$kerneldir_
 echo "Please find dt.img in arch/arm/boot folder of your kernel source folder(Press Enter to continue)"
 read enterkey;;
 6)./kernel-tools/Sony_build;;
-7)./scrips/kernel_menu;;
+7)./scripts/kernel_menu;;
 esac
 $multitools
   

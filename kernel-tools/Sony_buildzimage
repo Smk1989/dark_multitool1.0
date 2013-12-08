@@ -2,7 +2,7 @@
 clear
 export root=$(cd $(dirname "$0");pwd)
 export multitools=$root/Sony
-source ~/multitool1.0/scripts/config
+source ~/dark_multitool1.0/scripts/config
 echo "Current defconfig name : $config_name"
 echo "Current toolchain : $toolchain"
 echo "Warning: make sure you downloaded some toolchains before proceeding"
@@ -10,7 +10,7 @@ echo ">In case you used the tool to get toolchains then please proceed"
 echo
 echo ">In order to download and use your own toolchain kindly place the downloaded toolchain"
 echo "in android_prebuilt_toolchains folder under your kernel work directory($kerneldir_name)"
-echo "Now open toolchain_selector under ~/multitools/kernel-tools and add the toolchain name"
+echo "Now open toolchain_selector under ~/dark_multitools/kernel-tools and add the toolchain name"
 echo "and path in the following format"
 echo "toolchain_name[the number after the last toolchain name]"
 echo "toolchain_path[the number after the last toolchain path]"
@@ -44,7 +44,7 @@ case $input in
   read config_name
   TARGET_KEY="config_name"
   REPLACEMENT_VALUE="$config_name"
-  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;;
 2)clear
   echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
@@ -55,7 +55,7 @@ echo "For eg: for Xperia Play it is semc_zeus_defconfig"
 read config_name
 TARGET_KEY="config_name"
 REPLACEMENT_VALUE="$config_name"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;; 
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;; 
 3)clear
   echo "Recommended toolchain is GCC 4.6 Linaro(Press Enter to continue)"
   read enterkey
@@ -66,7 +66,7 @@ echo "For eg: for Xperia Play it is semc_zeus_defconfig"
 read config_name
 TARGET_KEY="config_name"
 REPLACEMENT_VALUE="$config_name"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;;
 4)clear
   echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
@@ -81,7 +81,7 @@ echo "For eg: for Xperia Play it is semc_zeus_defconfig"
 read config_name
 TARGET_KEY="config_name"
 REPLACEMENT_VALUE="$config_name"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;;
 6)clear
   echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
@@ -92,13 +92,13 @@ echo "For eg: for Xperia Play it is semc_zeus_defconfig"
 read config_name
 TARGET_KEY="config_name"
 REPLACEMENT_VALUE="$config_name"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;;
 7)clear
   echo "Please enter a new defconfig name"
   read config_name
   TARGET_KEY="config_name"
   REPLACEMENT_VALUE="$config_name"
-  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
+  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
 ./kernel-tools/toolchain_selector
 echo "Press enter to continue with defconfig and toolchain selected"
 read enterkey;;

@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-source ~/multitool1.0/scripts/config
+source ~/dark_multitool1.0/scripts/config
 echo "Current git directory : $git_directory"
 echo
 echo "Please go to previous page and use the Git tools in case you want to change directory"
@@ -28,7 +28,7 @@ echo "Enter the name of your remote Git repository(eg: hello-world.git)"
 read input1
 TARGET_KEY="git_repo"
 REPLACEMENT_VALUE="$input1"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
 echo "Current remote Git repository changed to $input1"
 echo "Press Enter to continue"
 read enterkey
@@ -38,7 +38,7 @@ echo "Enter your github username"
 read input2
 TARGET_KEY="git_username"
 REPLACEMENT_VALUE="$input2"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
 echo "Current username changed to $input2"
 git config --global user.name "$input2"
 echo "Enter email ID to be used to label your commits(give same email as used in your github account"

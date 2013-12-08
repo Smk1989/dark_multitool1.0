@@ -1,0 +1,31 @@
+#!/bin/bash
+clear
+echo "1 - Unpack ramdisk from ramdisk.cpio.gz archive"
+echo
+echo "2 - Repack ramdisk from from ramdisk folder"
+read input
+case $input in
+1)clear
+echo "Place a copy of the ramdisk.cpio.gz file in the input folder and rename it to ramdisk.cpio.gz"
+echo
+echo "Press enter to continue"
+read enterkey
+cd ~/dark_multitool1.0/input
+unpack_ramdisk ramdisk.cpio.gz
+rm -r ramdisk.cpio.gz
+mv ramdisk ~/dark_multitool1.0/output
+echo "Please find repacked ramdisk in your output folder"
+read enterkey;;
+2)clear
+echo "Place a copy of the ramdisk folder and name it ramdisk in the input folder"
+echo
+echo "Press Enter to continue"
+read enterkey
+cd ~/dark_multitool1.0/input
+repack_ramdisk ramdisk
+rm -r ramdisk
+mv *.gz ~/dark_multitool1.0/output
+echo "Please find repacked ramdisk in your output folder"
+read enterkey;;
+esac
+

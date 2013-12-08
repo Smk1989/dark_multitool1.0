@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-source ~/multitool1.0/scripts/config
+source ~/dark_multitool1.0/scripts/config
 echo "1 - Download GIT package on your linux"
 echo
 echo "2 - Change directory where you want to initialize git"
@@ -26,7 +26,7 @@ echo "Enter name of the directory you want GIT to be initialized"
 read input1
 TARGET_KEY="git_directory"
 REPLACEMENT_VALUE="$input1"
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;;
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;;
 3)./Git_tools/Git_init;;
 4)./Git_tools/Git_add;;
 5)./Git_tools/Git_commit;;

@@ -34,12 +34,12 @@ case $input in
    else $multitools
    fi;
    read;;
-2). ~/multitool1.0/ADB_scripts/create_logcat;
+2). ~/dark_multitool1.0/ADB_scripts/create_logcat;
   read;;
-3). ~/multitool1.0/ADB_scripts/install_apps;
+3). ~/dark_multitool1.0/ADB_scripts/install_apps;
   read;;
 
-4). ~/multitool1.0/ADB_scripts/push_pull;
+4). ~/dark_multitool1.0/ADB_scripts/push_pull;
   read;;
 esac
 

@@ -26,7 +26,7 @@ adb shell "su -c '
            chmod 664 ~/sdcard/efs.tar
            exit
            exit'"
-cd ~/multitool1.0/output
+cd ~/dark_multitool1.0/output
 adb pull /mnt/sdcard/efs.tar
 elif [ "$input3" = "2" ]
 then
@@ -38,7 +38,7 @@ adb shell "su -c '
            chmod 664 ~/sdcard/efs.img
            exit
            exit'"
-cd ~/multitool1.0/output
+cd ~/dark_multitool1.0/output
 adb pull ~/sdcard/efs.img
 else 
 echo "Please enter a correct value"
@@ -50,7 +50,7 @@ echo "2-Use dd method to restore"
 read input1
 if [ "$input1" = "1" ]
 then
-cd ~/multitool1.0/input
+cd ~/dark_multitool1.0/input
 adb push efs.tar ~/sdcard/
 adb shell "su -c '
            tar -xvf ~/sdcard/efs.tar
@@ -58,7 +58,7 @@ adb shell "su -c '
            exit'"
 elif [ "$input1" = "2" ]
 then
-cd ~/multitool1.0/input
+cd ~/dark_multitool1.0/input
 adb push efs.img ~/sdcard/
 adb shell "su -c '
            dd if=~/sdcard/efs.img of=/dev/block/$memblock/efs

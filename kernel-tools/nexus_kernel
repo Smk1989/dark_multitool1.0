@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-source ~/multitool1.0/scripts/config
+source ~/dark_multitool1.0/scripts/config
 echo "Current defconfig name : $config_name"
 echo "Current toolchain : $toolchain"
 echo "1-Get the source code(make sure you have set up git)"
@@ -34,7 +34,7 @@ read enterkey;;
   read config_name
   TARGET_KEY="config_name"
   REPLACEMENT_VALUE="$config_name"
-  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config
+  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
   cd ~/$kerneldir_name/kernel
   ./kernel-tools/toolchain_selector
   echo "Press enter to import the defconfig for your device"

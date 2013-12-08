@@ -11,7 +11,8 @@ echo "or is compiled wrongly..Nor will the tool do everything for you"
 echo "This section only provides you with tools and utilities to free you"
 echo "from a few tasks required when you are compiling a kernel from its source...."
 echo
-source ~/multitool1.0/scripts/config
+source ~/dark_multitool1.0/scripts/config
+cp ~/dark_multitool1.0/bin/* $HOME/bin
 echo "Reading config................"
 echo "Current kernel work directory = $kerneldir_name"
 echo
@@ -29,7 +30,9 @@ echo "5 - Download toolchains"
 echo
 echo "6 - Unpack boot.img to get zImage and Ramdisk"
 echo 
-echo "7 - Exit"
+echo "7 - Unpack or Repack ramdisk"
+echo
+echo "8 - Exit"
 read input
 case $input in
 1) echo "--------Before you proceed please create a work directory for your files-------"
@@ -42,7 +45,7 @@ case $input in
    mkdir -p ~/$kerneldir_name
    TARGET_KEY="kerneldir_name"
    REPLACEMENT_VALUE="$kerneldir_name"
-   sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/multitool1.0/scripts/config;
+   sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;
    read;;
 2)./kernel-tools/Sony;;
 3)./kernel-tools/nexus_kernel;;
@@ -59,13 +62,14 @@ echo "Place boot.img in the input folder of the tool"
 echo
 echo "Press Enter to continue"
 read enterkey
-cd ~/multitool1.0/input
+cd ~/dark_multitool1.0/input
 unpack-bootimg.pl boot.img
 rm *.img
-mv ~/multitool1.0/input/* ~/multitool1.0/output
+mv ~/dark_multitool1.0/input/* ~/dark_multitool1.0/output
 echo "Done..please find your extracted zImage and ramdisk in the output folder of the tool(press enter)"
 read enterkey;;
-7)exit;;
+7)./kernel-tools/unpack_repack;;
+8)exit;;
 esac
 
   

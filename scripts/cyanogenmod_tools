@@ -3,7 +3,7 @@ export root=$(cd $(dirname "$0");pwd)
 export multitools=$root/cyanogenmod_tools
 clear
 echo "Reading config...."
-source ~/multitool1.0/scripts/config
+source ~/dark_multitool1.0/scripts/config
 echo "Current Directory name : $directory_name"
 echo "Current device codename : $codename"
 echo
@@ -35,7 +35,7 @@ echo "====================================================================="
 read input
 case $input in
 1)clear;
-  cd ~/multitool1.0/scripts/
+  cd ~/dark_multitool1.0/scripts/
   ./global_info;;
 2)clear; 
   ./Cyanogenmod_scripts/import_libraries/import_lib;;

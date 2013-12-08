@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "***Enter name of your text file***"
 read input
-adb logcat -v long > ~/multitool1.0/output/$input.txt
+adb logcat -v long > ~/dark_multitool1.0/output/$input.txt
 echo "Press enter key to continue"
 read enterkey
 exit 0

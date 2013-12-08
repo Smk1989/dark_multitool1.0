@@ -2,7 +2,7 @@
 echo "Put the apk file of the app in the input folder of the multitool"
 echo "Enter the name of the app you want to install"
 read input
-adb install "~/multitool1.0/input/$input"
+adb install "~/dark_multitool1.0/input/$input"
 echo "Press enter key to continue"
 read enterkey
 exit 0

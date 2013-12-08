@@ -22,6 +22,7 @@ read input1
 if [ "$input1" = "y" ]
 then
 xdg-open https://paypal.com
+read enterkey
 else
 ./menu
 fi;;
