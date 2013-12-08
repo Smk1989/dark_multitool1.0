@@ -36,7 +36,7 @@ read enterkey;;
   REPLACEMENT_VALUE="$config_name"
   sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
   cd ~/$kerneldir_name/kernel
-  ./kernel-tools/toolchain_selector
+  . ~/dark_multitool1.0/kernel-tools/toolchain_selector
   echo "Press enter to import the defconfig for your device"
   read enterkey
   ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name

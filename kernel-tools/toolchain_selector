@@ -1,13 +1,17 @@
 #!/bin/bash
 clear
 source ~/dark_multitool1.0/scripts/config
-cd ~/$kerneldir_name/android_prebuilt_toolchains/
+cd
+if [ -d ~/android_toolchains ]
+then 
 toolchain_name[0]="Android arm eabi 4.4.3"
 toolchain_name[1]="GCC 4.6 Linaro"
-toolchain_name[2]="GCC 4.7"
+toolchain_name[2]="GCC 4.6"
+toolchain_name[3]="GCC 4.7"
 toolchain_path[0]="arm-eabi-4.4.3/bin/arm-eabi"
 toolchain_path[1]="arm-eabi-linaro-4.6.2/bin/arm-eabi"
-toolchain_path[2]="arm-linux-androideabi-4.7/bin/arm-linux-androideabi"
+toolchain_path[2]="arm-linux-androideabi-4.6/bin/arm-linux-androideabi"
+toolchain_path[3]="arm-linux-androideabi-4.7/bin/arm-linux-androideabi"
 count=1
 echo "Please select the toolchain you wish to use"
 for name in "${toolchain_name[@]}";
@@ -23,7 +27,11 @@ REPLACEMENT_VALUE="${toolchain_path[$input]}"
 sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
 echo "Press Enter to continue"
 read enterkey
-
+else
+echo "Download some toolchains before proceeding and keep it under android_toolchains folder in your home"
+echo "directory. Or simply use option 5 in kernel menu to download toolchains"
+read enterkey
+fi
 
 
 

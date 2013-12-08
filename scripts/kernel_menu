@@ -53,8 +53,8 @@ case $input in
 5)echo "A few toolchains will be downloaded"
   echo "Press enter to continue"
   read enterkey
-  cd ~/$kerneldir_name
-  git clone https://github.com/smk1989/android_toolchains.git
+  cd
+  git clone https://github.com/Smk1989/android_toolchains.git
   echo "Press enter to continue"
   read enterkey;; 
 6)clear

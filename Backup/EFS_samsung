@@ -12,7 +12,6 @@ adb shell "su -c '
            mount | grep efs
            exit
            exit'"
-echo "Please make a note of the partition name"
 echo "Press enter to proceed"
 read enterkey
 echo "1-Use tar method to backup"
@@ -27,10 +26,10 @@ adb shell "su -c '
            exit
            exit'"
 cd ~/dark_multitool1.0/output
-adb pull /mnt/sdcard/efs.tar
+adb pull ~/sdcard/efs.tar
 elif [ "$input3" = "2" ]
 then
-echo "Enter the name of the memory block containing the efs partition"
+echo "Enter the name of the memory block containing the efs partition(ctrl+c to exit)"
 read $memblock
 adb shell "su -c '
            dd if=/dev/block/platform/$memblock/efs of=~/sdcard/efs.img

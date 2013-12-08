@@ -2,7 +2,7 @@
 directory_name=pichu
 codename=nozomi
 kerneldir_name=pikachu/pikachu
-config_name=fusion3_yuga_defconfig
+config_name=
 export git_directory=lulu/dark_multitool1.0
 export git_username=
 export git_repo=

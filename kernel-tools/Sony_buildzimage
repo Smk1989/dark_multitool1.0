@@ -9,11 +9,11 @@ echo "Warning: make sure you downloaded some toolchains before proceeding"
 echo ">In case you used the tool to get toolchains then please proceed"
 echo
 echo ">In order to download and use your own toolchain kindly place the downloaded toolchain"
-echo "in android_prebuilt_toolchains folder under your kernel work directory($kerneldir_name)"
-echo "Now open toolchain_selector under ~/dark_multitools/kernel-tools and add the toolchain name"
+echo "in android_toolchains folder under home directory"
+echo ">Now open toolchain_selector under ~/dark_multitools/kernel-tools and add the toolchain name"
 echo "and path in the following format"
-echo "toolchain_name[the number after the last toolchain name]"
-echo "toolchain_path[the number after the last toolchain path]"
+echo "-toolchain_name[the number after the last toolchain name]"
+echo "-toolchain_path[the number after the last toolchain path]"
 echo
 echo "Please Enter a choice"
 echo
@@ -108,11 +108,11 @@ esac
   cd ~/$kerneldir_name/kernel
   echo "Press enter to import the defconfig for your device"
   read enterkey
-  ARCH=arm CROSS_COMPILE=$HOME/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make $config_name
+  ARCH=arm CROSS_COMPILE=$HOME/android_toolchains/$toolchain- make $config_name
   echo "zImage will be compiled now and it might take a long time"
   echo "Press Enter to continue"
   read enterkey
-  ARCH=arm CROSS_COMPILE=~/$kerneldir_name/android_prebuilt_toolchains/$toolchain- make -j$(grep -c ^processor /proc/cpuinfo)
+  ARCH=arm CROSS_COMPILE=~/android_toolchains/$toolchain- make -j$(grep -c ^processor /proc/cpuinfo)
 $multitools
 
 
