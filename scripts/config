@@ -1,15 +1,12 @@
 #!/bin/bash
-directory_name=pichu
-codename=nozomi
-kerneldir_name=pikachu/pikachu
-config_name=
-export git_directory=lulu/dark_multitool1.0
+export directory_name=
+export codename=
+export kerneldir_name=
+export config_name=
+export git_directory=
 export git_username=
 export git_repo=
 export git_branch_name=master
 export toolchain=
-export directory_name
-export codename
-export kerneldir_name
-export config_name
+
 

@@ -32,7 +32,9 @@ echo "6 - Unpack boot.img to get zImage and Ramdisk"
 echo 
 echo "7 - Unpack or Repack ramdisk"
 echo
-echo "8 - Exit"
+echo "8 - Build zImage for a generic kernel(Experimental)"
+echo
+echo "9 - Exit"
 read input
 case $input in
 1) echo "--------Before you proceed please create a work directory for your files-------"
@@ -69,7 +71,16 @@ mv ~/dark_multitool1.0/input/* ~/dark_multitool1.0/output
 echo "Done..please find your extracted zImage and ramdisk in the output folder of the tool(press enter)"
 read enterkey;;
 7)./kernel-tools/unpack_repack;;
-8)exit;;
+8)clear
+  echo "Please enter a new defconfig name"
+  read config_name
+  TARGET_KEY="config_name"
+  REPLACEMENT_VALUE="$config_name"
+  sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
+. ~/dark_multitool1.0/kernel-tools/toolchain_selector
+echo "Press enter to continue with defconfig and toolchain selected"
+read enterkey;;
+9)exit;;
 esac
 
   

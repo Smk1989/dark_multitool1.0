@@ -19,7 +19,7 @@ do
 echo "$count-""$name"
 count=$[count+1];
 done
-echo "$count-exit"
+echo "ctrl+c to exit"
 read input
 input=$[input-1]
 TARGET_KEY="toolchain"

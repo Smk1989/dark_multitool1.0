@@ -20,25 +20,25 @@ read input3
 if [ "$input3" = "1" ]
 then
 adb shell "su -c '
-           tar -cvf ~/sdcard/ /efs
-           chown sdcard_rw:sdcard_rw ~/sdcard/efs.tar
+           tar -cvf mnt/sdcard/efs.tar /efs
            chmod 664 ~/sdcard/efs.tar
            exit
            exit'"
 cd ~/dark_multitool1.0/output
-adb pull ~/sdcard/efs.tar
+adb pull mnt/sdcard/efs.tar
+echo "Please find your efs.tar file in your output folder"
 elif [ "$input3" = "2" ]
 then
 echo "Enter the name of the memory block containing the efs partition(ctrl+c to exit)"
-read $memblock
+read memblock
 adb shell "su -c '
-           dd if=/dev/block/platform/$memblock/efs of=~/sdcard/efs.img
-           chown sdcard_rw:sdcard_rw ~/sdcard/efs.tar
+           dd if=/dev/block/platform/$memblock of=~/sdcard/efs.img
            chmod 664 ~/sdcard/efs.img
            exit
            exit'"
 cd ~/dark_multitool1.0/output
-adb pull ~/sdcard/efs.img
+adb pull mnt/sdcard/efs.img
+echo "Please find your efs.img file in your output folder"
 else 
 echo "Please enter a correct value"
 fi
@@ -49,6 +49,8 @@ echo "2-Use dd method to restore"
 read input1
 if [ "$input1" = "1" ]
 then
+echo "Please place your tar file in your input folder of the tool and press enter"
+read enterkey
 cd ~/dark_multitool1.0/input
 adb push efs.tar ~/sdcard/
 adb shell "su -c '
@@ -57,6 +59,10 @@ adb shell "su -c '
            exit'"
 elif [ "$input1" = "2" ]
 then
+echo "Please place your img file in your input folder of the tool and press enter"
+read enterkey
+echo "Enter the name of the memory block containing the efs partition(ctrl+c to exit)"
+read memblock
 cd ~/dark_multitool1.0/input
 adb push efs.img ~/sdcard/
 adb shell "su -c '
