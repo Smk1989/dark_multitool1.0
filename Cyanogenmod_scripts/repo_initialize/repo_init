@@ -13,7 +13,8 @@ echo "4-cm-9.0.0"
 echo "5-cm-9.1.0"
 echo "6-cm-10.1"
 echo "7-cm-10.2"
-echo "8-Something else(Please go to http://wiki.cyanogenmod.org/ and enter the Cyanogenmod source name you wish to get)"
+echo "8-cm-11.0"
+echo "9-Something else(Please go to http://wiki.cyanogenmod.org/ and enter the Cyanogenmod source name you wish to get)"
 read user_input
 case $user_input in
 1 ) user_choice="cm-7.0.0";;
@@ -23,7 +24,8 @@ case $user_input in
 5 ) user_choice="cm-9.1.0";;
 6 ) user_choice="cm-10.1";;
 7 ) user_choice="cm-10.2";;
-8 ) echo "Enter the name of the cyanogenmod source you want to get"
+8 ) user_choice="cm-11.0";;
+9 ) echo "Enter the name of the cyanogenmod source you want to get"
     echo "*************warning*****************"
     echo "Enter the name of the source as the exact branch name from cm source in github(eg.ics or cm-7.0.2.1)"
     read user_choice;;
