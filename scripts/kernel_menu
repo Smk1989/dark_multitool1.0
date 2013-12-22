@@ -20,21 +20,23 @@ echo "******* Please select what you want to do ********"
 echo
 echo "1 - Define/change work directory for your kernel "
 echo
-echo "2 - To work on Sony kernel"
+echo "2 - Install necessary libraries"
 echo
-echo "3 - To work on Nexus kernel"
+echo "3 - To work on Sony kernel"
 echo
-echo "4 - To work on Samsung kernel"
+echo "4 - To work on Nexus kernel"
 echo
-echo "5 - Download toolchains"
+echo "5 - To work on Samsung kernel"
 echo
-echo "6 - Unpack boot.img to get zImage and Ramdisk"
+echo "6 - Download toolchains"
+echo
+echo "7 - Unpack boot.img to get zImage and Ramdisk"
 echo 
-echo "7 - Unpack or Repack ramdisk"
+echo "8 - Unpack or Repack ramdisk"
 echo
-echo "8 - Build zImage for a generic kernel(Experimental)"
+echo "9 - Build zImage for a generic kernel(Experimental)"
 echo
-echo "9 - Exit"
+echo "10 - Exit"
 read input
 case $input in
 1) echo "--------Before you proceed please create a work directory for your files-------"
@@ -49,29 +51,41 @@ case $input in
    REPLACEMENT_VALUE="$kerneldir_name"
    sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;
    read;;
-2)./kernel-tools/Sony;;
-3)./kernel-tools/nexus_kernel;;
-4)./kernel-tools/samsung;;
-5)echo "A few toolchains will be downloaded"
+2). ~/dark_multitool1.0/Cyanogenmod_scripts/import_libraries/import_lib;;
+3)./kernel-tools/Sony;;
+4)./kernel-tools/nexus_kernel;;
+5)./kernel-tools/samsung;;
+6)echo "A few toolchains will be downloaded"
   echo "Press enter to continue"
   read enterkey
   cd
   git clone https://github.com/Smk1989/android_toolchains.git
   echo "Press enter to continue"
   read enterkey;; 
-6)clear
+7)clear
 echo "Place boot.img in the input folder of the tool"
 echo
 echo "Press Enter to continue"
 read enterkey
 cd ~/dark_multitool1.0/input
+echo "1 - Unpack boot.img by unpack-bootimg pearl script"
+echo "2 - Unpack boot.img by umkbootimg"
+read inputboot
+if [ "$inputboot" = "1" ]
+then
 unpack-bootimg.pl boot.img
+elif [ "$inputboot" = "2" ]
+then
+umkbootimg boot.img
+else 
+echo "Enter valid choice"
+fi
 rm *.img
 mv ~/dark_multitool1.0/input/* ~/dark_multitool1.0/output
 echo "Done..please find your extracted zImage and ramdisk in the output folder of the tool(press enter)"
 read enterkey;;
-7)./kernel-tools/unpack_repack;;
-8)clear
+8)./kernel-tools/unpack_repack;;
+9)clear
   echo "Please enter a new defconfig name"
   read config_name
   TARGET_KEY="config_name"
@@ -80,7 +94,7 @@ read enterkey;;
 . ~/dark_multitool1.0/kernel-tools/toolchain_selector
 echo "Press enter to continue with defconfig and toolchain selected"
 read enterkey;;
-9)exit;;
+10)exit;;
 esac
 
   
