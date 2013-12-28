@@ -22,7 +22,9 @@ echo "5-Create boot.img/kernel.elf for Xperia Z/ ZL/ Tablet Z/ ZR"
 echo
 echo "6-Create boot.img/kernel.elf for Xperia Z1/ Z Ultra"
 echo
-echo "7-Exit"
+echo "7-Create boot.img/kernel.elf for Xperia J"
+echo
+echo "8-Exit"
 read input
 case $input in
 1)clear
@@ -91,7 +93,14 @@ echo
 mv boot.img ~/dark_multitool1.0/output
 echo "Press enter to continue"
 read enterkey;;
-7)exit;;
+7)clear
+python mkelf.py -o kernel.elf zImage@0x00208000 ramdisk.cpio.gz@0x01400000,ramdisk bootcmd@cmdline
+echo "Please find the compiled kernel.elf file in the output folder of the tool"
+echo
+mv kernel.elf ~/dark_multitool1.0/output
+echo "Press enter to continue"
+read enterkey;;
+8)exit;;
 esac
 $multitools
 
