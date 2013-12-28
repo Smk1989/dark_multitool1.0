@@ -20,7 +20,9 @@ echo "5-Make dt.img(for xperia z1 and z ultra)"
 echo
 echo "6-Make kernel.elf or boot.img from zImage and Ramdisk"
 echo
-echo "7-Exit"
+echo "7-Dry run(Test your kernel.elf/boot.img)"
+echo
+echo "8-Exit"
 read input
 case $input in
 1)clear
@@ -62,7 +64,16 @@ dtbTool -o dt.img -s 2048 -p ~/$kerneldir_name/kernel/scripts/dtc/ ~/$kerneldir_
 echo "Please find dt.img in arch/arm/boot folder of your kernel source folder(Press Enter to continue)"
 read enterkey;;
 6)./kernel-tools/Sony_build;;
-7)./scripts/kernel_menu;;
+7)clear
+echo "Note : This option might not work if your device cannot hotboot kernel.elf/boot.img"
+echo "Place your boot.img or kernel.elf in the input folder of the tool"
+cd ~/dark_multitool1.0/input
+echo "Enter what you wanna test(eg. for kernel.elf type kernel.elf"
+read tester
+echo "Now connect your phone in fastboot mode and press Enter"
+read enterkey
+fastboot boot $tester;;
+8)./scripts/kernel_menu;;
 esac
 $multitools
   
