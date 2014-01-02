@@ -99,7 +99,7 @@ read enterkey;;
 . ~/dark_multitool1.0/kernel-tools/toolchain_selector
 echo "Press enter to continue with defconfig and toolchain selected"
 read enterkey;;
-11) ./kernel-tools/take_log;;
+10) ./kernel-tools/take_log;;
 11)exit;;
 esac
 
