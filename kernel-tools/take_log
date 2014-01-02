@@ -1,0 +1,7 @@
+#!/bin/bash
+clear
+echo "Press enter to start kernel log"
+read enterkey
+echo "Taking kernel log, press CRTL + C to end the log"
+adb shell dmesg >> ~/dark_multitool1.0/output/KernelLog.txt
+exit 0
