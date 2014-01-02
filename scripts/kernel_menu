@@ -36,7 +36,9 @@ echo "8 - Unpack or Repack ramdisk"
 echo
 echo "9 - Build zImage for a generic kernel(Experimental)"
 echo
-echo "10 - Exit"
+echo "10 - Take a kernel log(dmsg)"
+echo
+echo "11 - Exit"
 read input
 case $input in
 1) echo "--------Before you proceed please create a work directory for your files-------"
@@ -97,7 +99,8 @@ read enterkey;;
 . ~/dark_multitool1.0/kernel-tools/toolchain_selector
 echo "Press enter to continue with defconfig and toolchain selected"
 read enterkey;;
-10)exit;;
+11) ./kernel-tools/take_log;;
+11)exit;;
 esac
 
   
