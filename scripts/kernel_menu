@@ -82,6 +82,9 @@ echo "Enter valid choice"
 fi
 rm *.img
 mv ~/dark_multitool1.0/input/* ~/dark_multitool1.0/output
+echo -n "" > Put_files_here
+cd ~/dark_multitool1.0/output
+rm Put_files_here
 echo "Done..please find your extracted zImage and ramdisk in the output folder of the tool(press enter)"
 read enterkey;;
 8)./kernel-tools/unpack_repack;;
