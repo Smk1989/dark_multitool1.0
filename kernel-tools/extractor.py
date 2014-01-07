@@ -3,6 +3,7 @@ import os
 import tarfile
 import zipfile
 import glob
+import sys
 zipped_files = {}
 def extract_file(path, to_directory="."):
     if path.endswith('.zip'):
@@ -19,7 +20,7 @@ def extract_file(path, to_directory="."):
     
     try:
         file = opener(path, mode)
-        try: file.extractall(os.path.expanduser("~/dark_multitool1.0/output/"))
+        try: file.extractall(os.path.expanduser("~/"+sys.argv[1]))
         finally: file.close()
     finally:
         os.chdir(cwd)

@@ -1,7 +1,7 @@
 #!/bin/bash
 export directory_name=
 export codename=
-export kerneldir_name=
+export kerneldir_name=test
 export config_name=
 export git_directory=
 export git_username=

@@ -1,6 +1,18 @@
 #!/bin/bash
 clear
-echo "Under development"
+export root=$(cd $(dirname "$0");pwd)
+export multitools=$root/samsung
+source ~/dark_multitool1.0/scripts/config
+export PATH=$PATH:$HOME/bin
+echo "1 - Unpack Kernel source "
 echo
-echo "Press Enter to continue"
-read enterkey
+echo "2 - Exit"
+read input
+case $input in
+1)cd ~/dark_multitool1.0/kernel-tools/
+  python extractor.py $kerneldir_name
+  echo "Please find the unpacked source in your kernel work directory"
+  echo "Press enter to continue"
+  read enterkey;;
+2)exit;;
+esac

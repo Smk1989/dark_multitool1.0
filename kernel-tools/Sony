@@ -28,9 +28,8 @@ case $input in
 1)clear
   echo "Please place a copy of the downloaded source tar.bz2 file in the input folder of the tool"
   echo "Press Enter to proceed with unpacking"
-  cd ~/dark_multitool1.0/input
-  tar -xjvf *.bz2 -C ~/$kerneldir_name
-  rm *.bz2
+  cd ~/dark_multitool1.0/kernel-tools/
+  python extractor.py $kerneldir_name
   echo "Please find the unpacked source in your kernel work directory"
   echo "Press enter to continue"
   read enterkey;;
@@ -73,7 +72,7 @@ read tester
 echo "Now connect your phone in fastboot mode and press Enter"
 read enterkey
 fastboot boot $tester;;
-8)./scripts/kernel_menu;;
+8). ~/dark_multitool1.0/scripts/kernel_menu;;
 esac
 $multitools
   
