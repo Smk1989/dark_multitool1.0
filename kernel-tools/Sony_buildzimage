@@ -10,10 +10,6 @@ echo ">In case you used the tool to get toolchains then please proceed"
 echo
 echo ">In order to download and use your own toolchain kindly place the downloaded toolchain"
 echo "in android_toolchains folder under home directory"
-echo ">Now open toolchain_selector under ~/dark_multitools/kernel-tools and add the toolchain name"
-echo "and path in the following format"
-echo "-toolchain_name[the number after the last toolchain name]"
-echo "-toolchain_path[the number after the last toolchain path]"
 echo
 echo "Please Enter a choice"
 echo
@@ -36,8 +32,10 @@ read input
 case $input in
 1)clear
   echo "Recommended toolchain is GCC 4.6 Linaro(Press Enter to continue)"
-  read enterkey 
-  ./kernel-tools/toolchain_selector
+  cd ~/dark_multitool1.0/kernel-tools/
+  python toolchain_selector.py
+  clear
+  chmod +x ~/dark_multitool1.0/scripts/config
   echo "Please enter your defconfig name before proceeding"
   echo
   echo "For eg: for Xperia Play it is semc_zeus_defconfig"
@@ -48,7 +46,10 @@ case $input in
 2)clear
   echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
-  ./kernel-tools/toolchain_selector
+  cd ~/dark_multitool1.0/kernel-tools/
+python toolchain_selector.py
+clear
+chmod +x ~/dark_multitool1.0/scripts/config
 echo "Please enter your defconfig name before proceeding"
 echo
 echo "For eg: for Xperia Play it is semc_zeus_defconfig"
@@ -59,7 +60,10 @@ sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scri
 3)clear
   echo "Recommended toolchain is GCC 4.6 Linaro(Press Enter to continue)"
   read enterkey
-  ./kernel-tools/toolchain_selector
+  cd ~/dark_multitool1.0/kernel-tools/
+python toolchain_selector.py
+clear
+chmod +x ~/dark_multitool1.0/scripts/config
 echo "Please enter your defconfig name before proceeding"
 echo
 echo "For eg: for Xperia Play it is semc_zeus_defconfig"
@@ -70,7 +74,17 @@ sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scri
 4)clear
   echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
-  ./kernel-tools/toolchain_selector;;
+  cd ~/dark_multitool1.0/kernel-tools/
+python toolchain_selector.py
+clear
+chmod +x ~/dark_multitool1.0/scripts/config
+echo "Please enter your defconfig name before proceeding"
+echo
+echo "For eg: for Xperia Play it is semc_zeus_defconfig"
+read config_name
+TARGET_KEY="config_name"
+REPLACEMENT_VALUE="$config_name"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config;;
 5)clear
   echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
@@ -85,7 +99,10 @@ sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scri
 6)clear
   echo "Recommended toolchain is GCC 4.7(Press Enter to continue)"
   read enterkey
-  ./kernel-tools/toolchain_selector
+    cd ~/dark_multitool1.0/kernel-tools/
+python toolchain_selector.py
+clear
+chmod +x ~/dark_multitool1.0/scripts/config
 echo "Please enter your defconfig name before proceeding"
 echo
 echo "For eg: for Xperia Play it is semc_zeus_defconfig"
@@ -99,7 +116,10 @@ sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scri
   TARGET_KEY="config_name"
   REPLACEMENT_VALUE="$config_name"
   sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
-./kernel-tools/toolchain_selector
+  cd ~/dark_multitool1.0/kernel-tools/
+python toolchain_selector.py
+clear
+chmod +x ~/dark_multitool1.0/scripts/config
 echo "Press enter to continue with defconfig and toolchain selected"
 read enterkey;;
 8)exit;;

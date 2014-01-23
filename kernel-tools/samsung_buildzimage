@@ -1,0 +1,45 @@
+#!/bin/bash
+clear
+export root=$(cd $(dirname "$0");pwd)
+export multitools=$root/samsung
+source ~/dark_multitool1.0/scripts/config
+echo "Current defconfig name : $config_name"
+echo "Current toolchain : $toolchain"
+echo "1 - Change/Define toolchain"
+echo "2 - Change/Define defconfig"
+echo "3 - Start Compiling zImage"
+echo "4 - Exit"
+read input
+case $input in
+1)echo "Warning: make sure you downloaded some toolchains before proceeding"
+echo ">In case you used the tool to get toolchains then please proceed"
+echo
+echo ">In order to download and use your own toolchain kindly place the downloaded toolchain"
+echo "in android_toolchains folder under home directory"
+echo
+echo "Press Enter to continue or ctrl+c to exit"
+read enterkey
+cd ~/dark_multitool1.0/kernel-tools/
+python toolchain_selector.py
+clear
+chmod +x ~/dark_multitool1.0/scripts/config;;
+2)clear
+echo "Please enter your defconfig name before proceeding or ctrl+c to exit"
+echo
+echo "For eg: for Xperia Play it is semc_zeus_defconfig"
+read config_name
+TARGET_KEY="config_name"
+REPLACEMENT_VALUE="$config_name"
+sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
+exit;;
+3)cd ~/$kerneldir_name/kernel
+echo "Press enter to import the defconfig for your device"
+read enterkey
+ARCH=arm CROSS_COMPILE=$HOME/android_toolchains/$toolchain- make $config_name
+echo "zImage will be compiled now and it might take a long time"
+echo "Press Enter to continue"
+read enterkey
+ARCH=arm CROSS_COMPILE=~/android_toolchains/$toolchain- make -j$(grep -c ^processor /proc/cpuinfo)
+exit;;
+4). ~/dark_multitool1.0/scripts/kernel_menu;;
+esac

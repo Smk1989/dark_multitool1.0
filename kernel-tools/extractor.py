@@ -34,8 +34,7 @@ for files in os.listdir("."):
     if files.endswith('.tar.gz') or files.endswith('.zip') or files.endswith('.tar.bz2'):
         count=count+1
         print ("%s-%s")%(count,files)
-        zipped_files.update({count:files})
-        
+        zipped_files.update({count:files})      
 x = input("Enter which file you want to extract : ")
 os.chdir(os.path.expanduser("~/dark_multitool1.0/input"))
 extract_file(zipped_files[x])

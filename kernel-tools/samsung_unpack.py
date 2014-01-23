@@ -1,2 +1,0 @@
-#!/bin/python
-print "hello"

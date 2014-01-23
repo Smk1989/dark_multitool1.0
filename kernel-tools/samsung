@@ -6,7 +6,7 @@ source ~/dark_multitool1.0/scripts/config
 export PATH=$PATH:$HOME/bin
 echo "1 - Unpack Kernel source "
 echo
-echo "2 - Exit"
+echo "2 - Compile zImage(generic)"
 read input
 case $input in
 1)cd ~/dark_multitool1.0/kernel-tools/
@@ -14,5 +14,6 @@ case $input in
   echo "Please find the unpacked source in your kernel work directory"
   echo "Press enter to continue"
   read enterkey;;
-2)exit;;
+2). ~/dark_multitool1.0/kernel-tools/samsung_buildzimage;;
+3)
 esac
