@@ -1,6 +1,0 @@
-#!/bin/bash
-python toolchain_selector.py
-TARGET_KEY="toolchain"
-REPLACEMENT_VALUE=$(python toolchain_selector.py)
-sed -i "s@\($TARGET_KEY *= *\).*@\1$REPLACEMENT_VALUE@" ~/dark_multitool1.0/scripts/config
-
